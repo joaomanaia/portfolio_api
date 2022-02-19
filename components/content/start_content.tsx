@@ -1,9 +1,12 @@
 import { ArrowCircleDownIcon } from "@heroicons/react/outline"
 import Particles from "react-tsparticles"
+import Button from "../button/button"
 
-type StartContentType = {}
+type StartContentType = {
+    onNextClick: () => void
+}
 
-const StartContent: React.FC<StartContentType> = () => {
+const StartContent: React.FC<StartContentType> = ({onNextClick}) => {
 
     return (
         <div className="relative">
@@ -69,12 +72,12 @@ const StartContent: React.FC<StartContentType> = () => {
                         Somos um grupo de trabalho de
                         <p className='text-blue-500 lg:mt-4'>Aplicações informaticas</p>
                     </p>
-                    <button className='cursor-pointer transition-all ease-in-out duration-300 bg-blue-500 text-white hover:bg-white hover:text-black text-lg py-2 px-4 rounded-full mt-12'>
-                        Continuar
-                    </button>
+                    <Button text="Continuar" onClick={() => onNextClick()} />
                 </div>
                 <div className='flex w-full h-64 bg-gradient-to-b from-transparent to-blue-900 items-center justify-center'>
-                    <div className='mt-32 h-12 w-12 animate-bounce text-white cursor-pointer hover:text-blue-200'>
+                    <div 
+                        onClick={() => onNextClick()}
+                        className='mt-32 h-12 w-12 animate-bounce text-white cursor-pointer hover:text-blue-200'>
                         <ArrowCircleDownIcon />
                     </div>
                 </div>

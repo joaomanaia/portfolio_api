@@ -1,8 +1,6 @@
 import Image from "next/image"
 
 type PostTimeLineItemType = {
-    hasPostAbove: boolean
-    hasPostBelow: boolean
     authorName: string
     authorPhoto: string
     postDate: string
@@ -12,8 +10,6 @@ type PostTimeLineItemType = {
 }
 
 const PostTimeLineItem: React.FC<PostTimeLineItemType> = ({
-    hasPostAbove,
-    hasPostBelow,
     authorName,
     authorPhoto,
     postDate,
@@ -23,8 +19,6 @@ const PostTimeLineItem: React.FC<PostTimeLineItemType> = ({
 }) => {
     return (
         <div className="flex flex-col items-start justify-center w-full h-auto">
-            {hasPostAbove && <div className="w-1 h-8 ml-5 mb-2 bg-blue-800 rounded-b-2xl"></div>}
-            
             <div className="flex">
                 <div className="relative w-11 h-11">
                     <Image
@@ -45,8 +39,8 @@ const PostTimeLineItem: React.FC<PostTimeLineItemType> = ({
             </div>
 
             <div className="grow flex ml-5 mt-1 w-full">
-                <div className={`w-1 h-auto bg-blue-800 ${hasPostBelow ? "rounded-t-2xl" : "rounded-2xl"}`}></div>
-                <div className="rounded-2xl bg-gray-800 p-2 ml-8 w-full mx-12">
+                <div className={`w-1 h-auto bg-blue-800 mb-4 rounded-2xl`}></div>
+                <div className="rounded-2xl bg-gray-800 p-2 ml-8 w-full mx-12 mb-8">
                     <div className="relative w-full aspect-video">
                         <Image
                             src={postImage}

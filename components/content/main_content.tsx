@@ -4,21 +4,20 @@ import TimelineContent from "./projects/timeline/post_timeline_content"
 import StartContent from "./start_content"
 
 type MainContentType = {
-    setHeaderTransparent: (transparent: boolean) => void
+  setHeaderTransparent: (transparent: boolean) => void
 }
 
-const MainContent: React.FC<MainContentType> = ({setHeaderTransparent}) => {
+const MainContent: React.FC<MainContentType> = ({ setHeaderTransparent }) => {
 
-    const ref = useRef<HTMLDivElement>(null)
-
+  const ref = useRef<HTMLDivElement>(null)
+  const participantsRef = useRef<HTMLDivElement>(null)
+  const timelineRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const scrollListener = () => {
       window.addEventListener("scroll", () => {
         let y = 1 + (window.scrollY || window.pageYOffset) / 150
         y = y < 1 ? 1 : y // ensure y is always >= 1 (due to Safari's elastic scroll)
-        
-        console.log(y)
 
         setHeaderTransparent(y === 1)
       })
@@ -27,16 +26,20 @@ const MainContent: React.FC<MainContentType> = ({setHeaderTransparent}) => {
     scrollListener()
   }, [setHeaderTransparent])
 
-    return (
-        <div 
-          ref={ref}
-          className='flex flex-col overflow-x-hidden overflow-y-scroll scrollbar-hide bg-black'>
+  const scrollToParticipants = () => participantsRef.current?.scrollIntoView()
 
-          <StartContent />
-          <ParticipantsContent />
-          <TimelineContent/>
-        </div>
-    )
+  const scrollToTimeline = () => timelineRef.current?.scrollIntoView()
+
+  return (
+    <div
+      ref={ref}
+      className='flex flex-col overflow-x-hidden overflow-y-scroll scrollbar-hide bg-black'>
+
+      <StartContent onNextClick={scrollToParticipants}/>
+      <ParticipantsContent participantsRef={participantsRef} scrollToTimeline={scrollToTimeline}/>
+      <TimelineContent timelineRef={timelineRef}/>
+    </div>
+  )
 }
 
 export default MainContent
