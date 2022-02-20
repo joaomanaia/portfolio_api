@@ -1,21 +1,45 @@
 import { NextPage } from "next"
 import Head from "next/head"
 import Image from "next/image"
+import { useEffect } from "react"
+import { Element, animateScroll } from "react-scroll"
+import { joaomanaiaName, joaomanaiaPhoto } from "../../common/common"
 import NormalHeader from "../../components/header/normal_header"
 
 type CriacaoDoSiteType = {}
 
-const CriacaoDoSite: NextPage<CriacaoDoSiteType> = () => {
+const CriacaoDoSite: NextPage<CriacaoDoSiteType> = () => {  
+    
+    useEffect(() => {
+        animateScroll.scrollToTop()
+    }, [])
+
     return (
-        <div className="flex flex-col">
+        <Element 
+            name="main"
+            className="flex flex-col w-screen bg-black text-white">
             <Head>
                 <title>Criação do site</title>
             </Head>
 
-            <NormalHeader/>
+            <NormalHeader />
 
-            <div className="mt-20 mx-12 md:mx-44 xl:mx-96">
-                <p className="text-3xl font-semibold">
+            <div className="py-20 px-12 md:px-44 xl:px-96 h-auto w-auto">
+                <div className="flex space-x-4 items-center">
+                    <div className="relative w-12 h-12">
+                        <Image
+                            className="rounded-full"
+                            src={joaomanaiaPhoto}
+                            alt={joaomanaiaName}
+                            layout="fill" />
+                    </div>
+                    <div className="flex flex-col space-y-1">
+                        <p className="text-lg">{joaomanaiaName}</p>
+                        <p className="text-gray-300 text-sm">20:15 20/02/2022</p>
+                    </div>
+                </div>
+
+                <p className="text-3xl font-semibold mt-12">
                     O melhor portfolio de aplicações informaticas
                 </p>
 
@@ -31,7 +55,7 @@ const CriacaoDoSite: NextPage<CriacaoDoSiteType> = () => {
                     Este é um projeto do next.js e com host na vercel.
                 </p>
             </div>
-        </div>
+        </Element>
     )
 }
 

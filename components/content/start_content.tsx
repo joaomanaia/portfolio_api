@@ -1,7 +1,6 @@
 import { ArrowCircleDownIcon } from "@heroicons/react/outline"
 import { Element, Link } from "react-scroll"
 import Particles from "react-tsparticles"
-import Button from "../button/button"
 import ScrollLinkButton from "../button/scroll_link_button"
 
 type StartContentType = {}

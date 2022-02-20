@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react"
+import Footer from "../footer/footer"
 import ParticipantsContent from "./participants/participants_content"
 import TimelineContent from "./projects/timeline/post_timeline_content"
 import StartContent from "./start_content"
@@ -32,6 +33,7 @@ const MainContent: React.FC<MainContentType> = ({ setHeaderTransparent }) => {
       <StartContent />
       <ParticipantsContent />
       <TimelineContent />
+      <Footer/>
     </div>
   )
 }

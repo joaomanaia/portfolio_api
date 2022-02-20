@@ -17,7 +17,7 @@ const PostTimelineContent: React.FC<PostTimelineContentType> = () => {
             <PostTimeLineItem
                 authorName={joaomanaiaName}
                 authorPhoto={joaomanaiaPhoto}
-                postDate="20:15h 20/02/2022"
+                postDate="20:15 20/02/2022"
                 onMoreInfoClicked={() => router.push("trabalhos/criacao-do-site")}
                 postTitle="O melhor portfolio de aplicações informaticas"
                 postDescription="Este é um projeto do next.js e com host na vercel."
