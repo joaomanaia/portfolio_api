@@ -1,15 +1,17 @@
 import { ArrowCircleDownIcon } from "@heroicons/react/outline"
+import { Element, Link } from "react-scroll"
 import Particles from "react-tsparticles"
 import Button from "../button/button"
+import ScrollLinkButton from "../button/scroll_link_button"
 
-type StartContentType = {
-    onNextClick: () => void
-}
+type StartContentType = {}
 
-const StartContent: React.FC<StartContentType> = ({onNextClick}) => {
+const StartContent: React.FC<StartContentType> = () => {
 
     return (
-        <div className="relative">
+        <Element
+            name="home"
+            className="relative">
             <div className="absolute top-0 z-0 w-screen h-screen">
                 <Particles
                     id="particles"
@@ -31,10 +33,10 @@ const StartContent: React.FC<StartContentType> = ({onNextClick}) => {
                                 width: 1,
                                 triangles: {
                                     enable: false,
-                                }
+                                },
                             },
                             collisions: {
-                                enable: true,
+                                enable: false,
                             },
                             move: {
                                 direction: "none",
@@ -72,17 +74,19 @@ const StartContent: React.FC<StartContentType> = ({onNextClick}) => {
                         Somos um grupo de trabalho de
                         <p className='text-blue-500 lg:mt-4'>Aplicações informaticas</p>
                     </p>
-                    <Button text="Continuar" onClick={() => onNextClick()} />
+                    <ScrollLinkButton text="Continuar" to="participants" />
                 </div>
                 <div className='flex w-full h-64 bg-gradient-to-b from-transparent to-blue-900 items-center justify-center'>
-                    <div 
-                        onClick={() => onNextClick()}
+                    <Link
+                        to="participants"
+                        smooth={true}
+                        duration={500}
                         className='mt-32 h-12 w-12 animate-bounce text-white cursor-pointer hover:text-blue-200'>
                         <ArrowCircleDownIcon />
-                    </div>
+                    </Link>
                 </div>
             </div>
-        </div>
+        </Element>
     )
 }
 

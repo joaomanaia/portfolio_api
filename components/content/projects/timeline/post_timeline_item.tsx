@@ -7,6 +7,7 @@ type PostTimeLineItemType = {
     postTitle: string
     postDescription: string
     postImage: string
+    onMoreInfoClicked: () => void
 }
 
 const PostTimeLineItem: React.FC<PostTimeLineItemType> = ({
@@ -15,7 +16,8 @@ const PostTimeLineItem: React.FC<PostTimeLineItemType> = ({
     postDate,
     postTitle,
     postDescription,
-    postImage
+    postImage,
+    onMoreInfoClicked
 }) => {
     return (
         <div className="flex flex-col items-start justify-center w-full h-auto">
@@ -54,7 +56,9 @@ const PostTimeLineItem: React.FC<PostTimeLineItemType> = ({
                     <p className="text-white mt-2">
                         {postDescription}
                     </p>
-                    <button className="mt-4 rounded-full bg-blue-700 py-2 px-4 text-white transition ease-in-out duration-300 hover:bg-white hover:text-black">
+                    <button 
+                        onClick={onMoreInfoClicked}
+                        className="mt-4 rounded-full bg-blue-700 py-2 px-4 text-white transition ease-in-out duration-300 hover:bg-white hover:text-black">
                         Ver mais informações
                     </button>
                 </div>

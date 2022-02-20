@@ -10,8 +10,6 @@ type MainContentType = {
 const MainContent: React.FC<MainContentType> = ({ setHeaderTransparent }) => {
 
   const ref = useRef<HTMLDivElement>(null)
-  const participantsRef = useRef<HTMLDivElement>(null)
-  const timelineRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const scrollListener = () => {
@@ -26,18 +24,14 @@ const MainContent: React.FC<MainContentType> = ({ setHeaderTransparent }) => {
     scrollListener()
   }, [setHeaderTransparent])
 
-  const scrollToParticipants = () => participantsRef.current?.scrollIntoView()
-
-  const scrollToTimeline = () => timelineRef.current?.scrollIntoView()
-
   return (
     <div
       ref={ref}
       className='flex flex-col overflow-x-hidden overflow-y-scroll scrollbar-hide bg-black'>
 
-      <StartContent onNextClick={scrollToParticipants}/>
-      <ParticipantsContent participantsRef={participantsRef} scrollToTimeline={scrollToTimeline}/>
-      <TimelineContent timelineRef={timelineRef}/>
+      <StartContent />
+      <ParticipantsContent />
+      <TimelineContent />
     </div>
   )
 }
