@@ -10,3 +10,12 @@ html {
     height: 100%;
     width: 100%;
 }
+
+@layer components {
+    .fonte-titulo {
+        @apply mt-12 text-xl font-semibold;
+    }
+    .fonte-texto {
+        @apply text-base mt-4;
+    }
+}

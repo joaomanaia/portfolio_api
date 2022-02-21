@@ -1,5 +1,5 @@
-import { Element, Button as ScrollButton, Link } from "react-scroll"
-import { joaomanaiaName, joaomanaiaPhoto, joaonevesName, joaonevesPhoto, tiagocaetanoName, tiagocaetanoPhoto } from "../../../common/common"
+import { Element } from "react-scroll"
+import { allUsers } from "../../../common/common"
 import ScrollLinkButton from "../../button/scroll_link_button"
 import ParticipantItem from "./participant_item"
 
@@ -13,18 +13,7 @@ const ParticipantsContent: React.FC<ParticipantsContentType> = () => {
             <div className='absolute z-0 bg-blue-900 h-96 w-full'></div>
             <div className='absolute mt-96 z-0 bg-gradient-to-b from-blue-900 h-1/5 w-full'></div>
             <div className="z-10 flex mx-2 lg:mx-32 xl:mx-64 lg:space-x-12 xl:space-x-32 flex-col mt-24 lg:mt-44 lg:flex-row items-center space-y-2 lg:space-y-0 lg:justify-around px-4">
-                <ParticipantItem
-                    name={joaonevesName}
-                    photoUrl={joaonevesPhoto}
-                    role="Secretário" />
-                <ParticipantItem
-                    name={joaomanaiaName}
-                    photoUrl={joaomanaiaPhoto}
-                    role="O que faz tudo" />
-                <ParticipantItem
-                    name={tiagocaetanoName}
-                    photoUrl={tiagocaetanoPhoto}
-                    role="Motorista que dá ideias" />
+                {allUsers.map((user) => <ParticipantItem key={user.linkName} user={user} /> )}
             </div>
             <div className='z-10 mx-2 lg:mx-32 xl:mx-64 flex flex-col lg:flex-row items-center grow justify-center lg:justify-around space-y-8 lg:space-x-24'>
                 <div>

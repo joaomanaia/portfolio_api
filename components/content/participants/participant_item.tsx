@@ -1,27 +1,26 @@
 import Image from "next/image"
+import { UserType } from "../../../common/common"
 
 type ParticipantItemType = {
-    name: string
-    photoUrl: string
-    role: string
+    user: UserType
 }
 
-const ParticipantItem: React.FC<ParticipantItemType> = ({name, photoUrl, role}) => {
+const ParticipantItem: React.FC<ParticipantItemType> = ({user}) => {
     return (
         <div className="flex lg:flex-col p-4 w-full lg:w-1/3 h-24 lg:h-auto bg-white shadow-lg rounded-2xl">
             <div className="relative h-full lg:h-auto lg:w-full aspect-square">
                 <Image
-                    src={photoUrl}
-                    alt={name}
+                    src={user.photoUrl}
+                    alt={user.name}
                     className="rounded-2xl"
                     layout="fill"/>
             </div>
             <div className="grow flex flex-col items-start lg:items-center justify-center mx-2 ml-12 lg:ml-0">
                 <p className="text-xl font-bold lg:mt-4">
-                    {name}
+                    {user.name}
                 </p>
                 <p className="text-md lg:mt-4">
-                    {role}
+                    {user.role}
                 </p>
             </div>
         </div>
