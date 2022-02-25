@@ -6,24 +6,45 @@ type PostTimeLineItemType = {
     onMoreInfoClicked: () => void
 }
 
-const PostTimeLineItem: React.FC<PostTimeLineItemType> = ({postData, onMoreInfoClicked}) => {
+const PostTimeLineItem: React.FC<PostTimeLineItemType> = ({ postData, onMoreInfoClicked }) => {
+
+    const authorNames = postData.authors.map(author => author.name)
+    const authorImages = postData.authors.map(author => author.photoUrl)
+
     return (
         <div className="flex flex-col items-start justify-center w-full h-auto">
             <div className="flex">
-                <div className="relative w-11 h-11">
-                    <Image
-                        className="rounded-full"
-                        src={postData.author.photoUrl}
-                        alt={postData.author.name}
-                        layout="fill"/>
-                </div>
+                {authorImages.length == 1 ? (
+                    <div className="relative w-11 h-11">
+                        <Image
+                            className="rounded-full"
+                            src={postData.authors[0].photoUrl}
+                            alt={postData.authors[0].name}
+                            layout="fill"/>
+                    </div>
+                ) : (
+                    <div className="w-11 h-11 -space-y-4">
+                        {authorImages.map(imageUrl => (
+                            <div 
+                                key={imageUrl}
+                                className="relative w-11 h-11 border-2 border-blue-700 rounded-full">
+                                <Image
+                                    className="rounded-full"
+                                    src={imageUrl}
+                                    alt={imageUrl}
+                                    layout="fill"
+                                    objectFit="cover" />
+                            </div>
+                        ))}
+                    </div>
+                )}
 
                 <div className="ml-4">
                     <p className="text-gray-400">
                         {postData.postDate}
                     </p>
                     <p className="text-white text-lg">
-                        {postData.author.name}
+                        {authorNames.join(", ")}
                     </p>
                 </div>
             </div>
@@ -36,7 +57,7 @@ const PostTimeLineItem: React.FC<PostTimeLineItemType> = ({postData, onMoreInfoC
                             src={postData.postImage}
                             alt={postData.postDescription}
                             className="rounded-2xl"
-                            layout="fill"/>
+                            layout="fill" />
                     </div>
                     <p className="text-white text-xl mt-4">
                         {postData.postTitle}
@@ -44,7 +65,7 @@ const PostTimeLineItem: React.FC<PostTimeLineItemType> = ({postData, onMoreInfoC
                     <p className="text-white mt-2">
                         {postData.postDescription}
                     </p>
-                    <button 
+                    <button
                         onClick={onMoreInfoClicked}
                         className="mt-4 rounded-full bg-blue-700 py-2 px-4 text-white transition ease-in-out duration-300 hover:bg-white hover:text-black">
                         Ver mais informações

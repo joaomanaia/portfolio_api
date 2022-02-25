@@ -1,7 +1,7 @@
 import { UserType } from "../../common/common"
 
 type PostTimeLineDataType = {
-    author: UserType
+    authors: UserType[]
     postDate: string
     postTitle: string
     postDescription: string

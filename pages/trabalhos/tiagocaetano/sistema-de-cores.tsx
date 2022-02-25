@@ -13,6 +13,10 @@ type SistemaDeCoresPageType = {
 }
 
 const SistemaDeCoresPage: NextPage<SistemaDeCoresPageType> = ({postData}) => {  
+
+
+    const authorNames = postData?.authors?.map(author => author.name) || []
+    const authorImages = postData?.authors?.map(author => author.photoUrl) || []
     
     useEffect(() => {
         animateScroll.scrollToTop()
@@ -30,15 +34,21 @@ const SistemaDeCoresPage: NextPage<SistemaDeCoresPageType> = ({postData}) => {
 
             <div className="py-20 px-12 md:px-44 xl:px-96 h-auto w-auto">
                 <div className="flex space-x-4 items-center">
-                    <div className="relative w-12 h-12">
-                        <Image
-                            className="rounded-full"
-                            src={postData?.author?.photoUrl || defaultUserPhotoUrl}
-                            alt={postData?.author?.name}
-                            layout="fill" />
+                    <div className="flex -space-x-4">
+                        {authorImages.map(img => (
+                            <div 
+                                key={img}
+                                className="relative rounded-full border-2 w-12 h-12">
+                                <Image
+                                    className="rounded-full"
+                                    src={img || defaultUserPhotoUrl}
+                                    alt={img}
+                                    layout="fill" />
+                            </div>
+                        ))}
                     </div>
                     <div className="flex flex-col space-y-1">
-                        <p className="text-lg">{postData?.author?.name}</p>
+                        <p className="text-lg">{authorNames.join(", ")}</p>
                         <p className="text-gray-300 text-sm">{postData?.postDate}</p>
                     </div>
                 </div>
