@@ -3,17 +3,16 @@ import Head from "next/head"
 import Image from "next/image"
 import { useEffect } from "react"
 import { Element, animateScroll } from "react-scroll"
-import { defaultUserPhotoUrl } from "../../../common/common"
-import NormalHeader from "../../../components/header/normal_header"
-import { findPostByRoute } from "../../../data/timeline/PostTimeLineData"
-import PostTimeLineDataType from "../../../data/timeline/PostTimeLineDataType"
+import { defaultUserPhotoUrl } from "../../common/common"
+import NormalHeader from "../../components/header/normal_header"
+import { findPostByRoute } from "../../data/timeline/PostTimeLineData"
+import PostTimeLineDataType from "../../data/timeline/PostTimeLineDataType"
 
-type SistemaDeCoresPageType = {
+type DefaultWorkPageType = {
     postData: PostTimeLineDataType | null
 }
 
-const SistemaDeCoresPage: NextPage<SistemaDeCoresPageType> = ({postData}) => {  
-
+const DefaultWorkPage: NextPage<DefaultWorkPageType> = ({postData}) => {  
 
     const authorNames = postData?.authors?.map(author => author.name) || []
     const authorImages = postData?.authors?.map(author => author.photoUrl) || []
@@ -62,18 +61,31 @@ const SistemaDeCoresPage: NextPage<SistemaDeCoresPageType> = ({postData}) => {
                         className="rounded-2xl"
                         src={postData?.postImage || defaultUserPhotoUrl}
                         alt="Post Image"
-                        layout="fill"
-                        objectFit="cover" />
+                        layout="fill" />
                 </div>
+
+                <p className="fonte-texto">
+                    {postData?.postDescription}
+                </p>
             </div>
         </Element>
     )
 }
 
-export default SistemaDeCoresPage
+export default DefaultWorkPage
 
 export const getServerSideProps: GetServerSideProps = async (content) => {
-    const postData = findPostByRoute("joaoneves/gimp-1") || null
+    const workId = content.params?.id
+
+    if (typeof workId !== "string") {
+        return {
+            props: {
+                postData: null
+            }
+        }
+    }
+
+    const postData = findPostByRoute(workId) || null
 
     return {
         props: {

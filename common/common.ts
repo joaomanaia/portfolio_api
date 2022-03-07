@@ -16,7 +16,7 @@ export const joaoneves: UserType = {
 
 export const joaomanaia: UserType = {
     name: "João Manaia",
-    photoUrl: "https://firebasestorage.googleapis.com/v0/b/infinitepower-ipc.appspot.com/o/joaomanaia2.jpeg?alt=media&token=f40b1305-30ae-4cd4-8156-58f246fd5908",
+    photoUrl: "https://firebasestorage.googleapis.com/v0/b/infinitepower-ipc.appspot.com/o/portfolio_api%2Fjoaomanaia.jpg?alt=media&token=ab4b0b01-2cf8-4efc-8b8d-1cc45e6e14a2",
     linkName: "joaomanaia",
     role: "O que faz tudo"
 }
