@@ -3,12 +3,28 @@ import PostTimeLineDataType from "./PostTimeLineDataType"
 
 export const postItems: PostTimeLineDataType[] = [
   {
+    authors: [joaoneves],
+    postDate: "07/03/2022",
+    postTitle: "5.2 - GIMP -Criação e edição de imagens",
+    postDescription: "FICHA DE ATIVIDADE 5.2",
+    postImage: "https://lh3.googleusercontent.com/2BhaHjYIFKzfFIbKV-fQAn70xXIA8ahxHZyUqHz511hZ84Rfj-qgCwf8mQes8YsUXkrSFdUX_FtloYA=w1316-h698",
+    route: `trabalhos/${joaoneves.linkName}-gimp-5-2`,
+  },
+  {
     authors: [joaomanaia, tiagocaetano],
     postDate: "07/03/2022",
     postTitle: "5.2 - GIMP -Criação e edição de imagens",
     postDescription: "FICHA DE ATIVIDADE 5.2",
     postImage: "https://firebasestorage.googleapis.com/v0/b/infinitepower-ipc.appspot.com/o/portfolio_api%2FSIIIIIIMMMMM.gif?alt=media&token=39678606-cd31-48c8-acaa-f0ab76107eb2",
     route: `trabalhos/${joaomanaia.linkName}-${tiagocaetano.linkName}-gimp-5-2`,
+  },
+  {
+    authors: [joaoneves],
+    postDate: "07/03/2022",
+    postTitle: "5.1 - GIMP -Criação e edição de imagens",
+    postDescription: "FICHA DE ATIVIDADE 5.1",
+    postImage: "https://lh3.googleusercontent.com/OULJ2JXUsb9CGURFxQZQAQJduPeclzvKJJ1vPFVYnuEMHDFTAyqgdPRgq8X4VuYg35KSwqilpY2vfoE=w1316-h698",
+    route: `trabalhos/${joaoneves.linkName}-gimp-5-1`,
   },
   {
     authors: [joaomanaia, tiagocaetano],
@@ -35,13 +51,14 @@ export const postItems: PostTimeLineDataType[] = [
     route: `trabalhos/${joaomanaia.linkName}-${tiagocaetano.linkName}-gimp-4`,
   },
   {
-    authors: [joaomanaia, tiagocaetano],
+    authors: [joaomanaia, tiagocaetano, joaoneves],
     postDate: "28/02/2022",
     postTitle: "3 - GIMP -Criação e edição de imagens",
     postDescription: "FICHA DE ATIVIDADE 3",
     postImage: "https://firebasestorage.googleapis.com/v0/b/infinitepower-ipc.appspot.com/o/portfolio_api%2Fgimp-3-joaomanaia-tiagocaetano.gif?alt=media&token=a6ce0ab5-8d79-469d-aa01-95a0f300aeee",
-    route: `trabalhos/${joaomanaia.linkName}${tiagocaetano.linkName}-gimp-3`,
+    route: `trabalhos/${joaomanaia.linkName}${tiagocaetano.linkName}-${joaoneves.linkName}-gimp-3`,
   },
+  
   {
     authors: [joaoneves],
     postDate: "28/02/2022",
