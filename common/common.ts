@@ -29,3 +29,7 @@ export const tiagocaetano: UserType = {
 }
 
 export const allUsers: UserType[] = [joaoneves, joaomanaia, tiagocaetano]
+
+export const findUserByLinkName = (linkName: string) => {
+    return allUsers.find(user => user.linkName === linkName)
+}

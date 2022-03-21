@@ -1,7 +1,39 @@
-import { joaomanaia, joaoneves, tiagocaetano } from "../../common/common"
+import { joaomanaia, joaoneves, tiagocaetano, UserType } from "../../common/common"
 import PostTimeLineDataType from "./PostTimeLineDataType"
 
+export const findPostByRoute = (route: string): PostTimeLineDataType | undefined => {
+  return postItems.find((post) => post.route.endsWith(route))
+}
+
+export const getPostsByUser = (user: UserType): PostTimeLineDataType[] => {
+  return postItems.filter((post) => post.authors.includes(user))
+}
+
 export const postItems: PostTimeLineDataType[] = [
+  {
+    authors: [joaomanaia, tiagocaetano],
+    postDate: "21/03/2022",
+    postTitle: "FICHA DE ATIVIDADE - 7  (7.2) - 21/03/2022  -  GIMP",
+    postDescription: "Nessa atividade vamos aprender a utilizar as ferramentas de seleção, modo seleção livre, adicionar canal de transparência, inverter a seleção, retirar seleção, adicionar nova camada, movimentar camada, aplicar filtro, remover olhos vermelhos, adicionar texto à imagem e aplicar efeitos no texto.",
+    postImage: "https://firebasestorage.googleapis.com/v0/b/infinitepower-ipc.appspot.com/o/portfolio_api%2Fativid-7-2_Alterada.jpg?alt=media&token=866785a5-36db-4c59-ab91-0f7f5d7937ee",
+    route: `trabalhos/${joaomanaia.linkName}-${tiagocaetano.linkName}-gimp-6.1-6.2`,
+  },
+  {
+    authors: [joaomanaia, tiagocaetano],
+    postDate: "21/03/2022",
+    postTitle: "FICHA DE ATIVIDADE - 7  (7.1) - 21/03/2022  -  GIMP",
+    postDescription: "Nessa atividade vamos aprender a utilizar as ferramentas de seleção, modo seleção livre, adicionar canal de transparência, inverter a seleção, retirar seleção, adicionar nova camada, movimentar camada, aplicar filtro, remover olhos vermelhos, adicionar texto à imagem e aplicar efeitos no texto.",
+    postImage: "https://firebasestorage.googleapis.com/v0/b/infinitepower-ipc.appspot.com/o/portfolio_api%2FFoto1_Alterada.png?alt=media&token=71125741-8b70-4727-9fd6-35094fde622f",
+    route: `trabalhos/${joaomanaia.linkName}-${tiagocaetano.linkName}-gimp-6.1-6.2`,
+  },
+  {
+    authors: [joaomanaia, tiagocaetano],
+    postDate: "14/03/2022",
+    postTitle: "6 - 6.1 e 6.2 - Atividades - GIMP -Criação e edição de imagens",
+    postDescription: "FICHA DE ATIVIDADE 6.1 e 6.2",
+    postImage: "https://firebasestorage.googleapis.com/v0/b/infinitepower-ipc.appspot.com/o/portfolio_api%2FWallpaper.png?alt=media&token=d7cf16a4-689b-41fe-90b4-07e94ea47149",
+    route: `trabalhos/${joaomanaia.linkName}-${tiagocaetano.linkName}-gimp-6.1-6.2`,
+  },
   {
     authors: [joaoneves],
     postDate: "07/03/2022",
@@ -100,7 +132,3 @@ export const postItems: PostTimeLineDataType[] = [
     route: `trabalhos/${tiagocaetano.linkName}/sistema-de-cores`,
   },
 ]
-
-export const findPostByRoute = (route: string): PostTimeLineDataType | undefined => {
-  return postItems.find((post) => post.route.endsWith(route))
-}

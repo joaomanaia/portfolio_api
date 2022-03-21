@@ -2,12 +2,15 @@ import Image from "next/image"
 import { UserType } from "../../../common/common"
 
 type ParticipantItemType = {
-    user: UserType
+    user: UserType,
+    onParticipantClick: () => void
 }
 
-const ParticipantItem: React.FC<ParticipantItemType> = ({user}) => {
+const ParticipantItem: React.FC<ParticipantItemType> = ({user, onParticipantClick}) => {
     return (
-        <div className="flex lg:flex-col p-4 w-full lg:w-1/3 h-24 lg:h-auto bg-white shadow-lg rounded-2xl">
+        <div 
+            onClick={onParticipantClick}
+            className="flex lg:flex-col p-4 w-full lg:w-1/3 h-24 lg:h-auto bg-white shadow-lg rounded-2xl hover:bg-blue-200">
             <div className="relative h-full lg:h-auto lg:w-full aspect-square">
                 <Image
                     src={user.photoUrl}
