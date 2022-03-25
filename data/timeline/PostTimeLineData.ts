@@ -11,12 +11,20 @@ export const getPostsByUser = (user: UserType): PostTimeLineDataType[] => {
 
 export const postItems: PostTimeLineDataType[] = [
   {
-    authors: [joaomanaia, tiagocaetano],
+    authors: [joaoneves],
     postDate: "21/03/2022",
     postTitle: "FICHA DE ATIVIDADE - 7  (7.2) - 21/03/2022  -  GIMP",
     postDescription: "Nessa atividade vamos aprender a utilizar as ferramentas de seleção, modo seleção livre, adicionar canal de transparência, inverter a seleção, retirar seleção, adicionar nova camada, movimentar camada, aplicar filtro, remover olhos vermelhos, adicionar texto à imagem e aplicar efeitos no texto.",
-    postImage: "https://firebasestorage.googleapis.com/v0/b/infinitepower-ipc.appspot.com/o/portfolio_api%2Fativid-7-2_Alterada.jpg?alt=media&token=866785a5-36db-4c59-ab91-0f7f5d7937ee",
-    route: `trabalhos/${joaomanaia.linkName}-${tiagocaetano.linkName}-gimp-6.1-6.2`,
+    postImage: "https://cdn.discordapp.com/attachments/823475059808927784/956960069105369118/svMRpp74XU9gCD0i7pwwpPY0Q6V34Z2mjM8MFIHpwhSwEnSO05PGTJgWZ97zmslZLxiDB0-AnMpsnfsw1316-h698.png",
+    route: `trabalhos/${joaoneves.linkName}-gimp-6.1-6.2`,
+  },
+  {
+    authors: [joaoneves],
+    postDate: "21/03/2022",
+    postTitle: "FICHA DE ATIVIDADE - 7  (7.1) - 21/03/2022  -  GIMP",
+    postDescription: "Nessa atividade vamos aprender a utilizar as ferramentas de seleção, modo seleção livre, adicionar canal de transparência, inverter a seleção, retirar seleção, adicionar nova camada, movimentar camada, aplicar filtro, remover olhos vermelhos, adicionar texto à imagem e aplicar efeitos no texto.",
+    postImage: "https://cdn.discordapp.com/attachments/823475059808927784/956959389712007248/F0gKLBC1cH67Yg9Agy_LSrisH8wypFvtZgT2jVfyfAQddU06OlsW9ch9ZYY6tqDD99mS9K5yo03dgbIw1319-h698.png",
+    route: `trabalhos/${joaoneves.linkName}-gimp-6.1-6.2`,
   },
   {
     authors: [joaomanaia, tiagocaetano],
@@ -36,10 +44,18 @@ export const postItems: PostTimeLineDataType[] = [
   },
   {
     authors: [joaoneves],
+    postDate: "14/03/2022",
+    postTitle: "6 - 6.1 e 6.2 - Atividades - GIMP -Criação e edição de imagens",
+    postDescription: "FICHA DE ATIVIDADE 6.1 e 6.2",
+    postImage: "https://cdn.discordapp.com/attachments/823475059808927784/956958368747102228/IW3znBo5xlU2etDHAisWWn9es-8YwZ-Cm_lBnDPtYY8nsAgFffYwR1eZGIJ4B6OPP_soTWYphrLfkMww1319-h698.png",
+    route: `trabalhos/${joaoneves.linkName}-gimp-6.1-6.2`,
+  },
+  {
+    authors: [joaoneves],
     postDate: "07/03/2022",
     postTitle: "5.2 - GIMP -Criação e edição de imagens",
     postDescription: "FICHA DE ATIVIDADE 5.2",
-    postImage: "https://lh3.googleusercontent.com/2BhaHjYIFKzfFIbKV-fQAn70xXIA8ahxHZyUqHz511hZ84Rfj-qgCwf8mQes8YsUXkrSFdUX_FtloYA=w1316-h698",
+    postImage: "https://cdn.discordapp.com/attachments/823475059808927784/956957750515105792/c6yRrxf_MB7KTOwc-u3owmUvcXm0ckJ_NZ23mmXSjyIGLA8Gl0CZOqoOnzhl99RV7ypmwv1k02z5LU0w1319-h698.png",
     route: `trabalhos/${joaoneves.linkName}-gimp-5-2`,
   },
   {
@@ -55,7 +71,7 @@ export const postItems: PostTimeLineDataType[] = [
     postDate: "07/03/2022",
     postTitle: "5.1 - GIMP -Criação e edição de imagens",
     postDescription: "FICHA DE ATIVIDADE 5.1",
-    postImage: "https://lh3.googleusercontent.com/OULJ2JXUsb9CGURFxQZQAQJduPeclzvKJJ1vPFVYnuEMHDFTAyqgdPRgq8X4VuYg35KSwqilpY2vfoE=w1316-h698",
+    postImage: "https://cdn.discordapp.com/attachments/823475059808927784/956957339888521246/vxv-cQi77o7y_i2Exu3qW-gYPGgYyAWDkPLBiW8thr0gQyYeBv9f_8tD_q5-I9N8ChbUCVutuhHSykMw1319-h698.png",
     route: `trabalhos/${joaoneves.linkName}-gimp-5-1`,
   },
   {
