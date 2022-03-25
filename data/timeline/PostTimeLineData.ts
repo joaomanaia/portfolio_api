@@ -16,7 +16,15 @@ export const postItems: PostTimeLineDataType[] = [
     postTitle: "FICHA DE ATIVIDADE - 7  (7.2) - 21/03/2022  -  GIMP",
     postDescription: "Nessa atividade vamos aprender a utilizar as ferramentas de seleção, modo seleção livre, adicionar canal de transparência, inverter a seleção, retirar seleção, adicionar nova camada, movimentar camada, aplicar filtro, remover olhos vermelhos, adicionar texto à imagem e aplicar efeitos no texto.",
     postImage: "https://cdn.discordapp.com/attachments/823475059808927784/956960069105369118/svMRpp74XU9gCD0i7pwwpPY0Q6V34Z2mjM8MFIHpwhSwEnSO05PGTJgWZ97zmslZLxiDB0-AnMpsnfsw1316-h698.png",
-    route: `trabalhos/${joaoneves.linkName}-gimp-6.1-6.2`,
+    route: `trabalhos/${joaoneves.linkName}-gimp-7.2`,
+  },
+  {
+    authors: [joaomanaia, tiagocaetano],
+    postDate: "21/03/2022",
+    postTitle: "FICHA DE ATIVIDADE - 7  (7.2) - 21/03/2022  -  GIMP",
+    postDescription: "Nessa atividade vamos aprender a utilizar as ferramentas de seleção, modo seleção livre, adicionar canal de transparência, inverter a seleção, retirar seleção, adicionar nova camada, movimentar camada, aplicar filtro, remover olhos vermelhos, adicionar texto à imagem e aplicar efeitos no texto.",
+    postImage: "https://firebasestorage.googleapis.com/v0/b/infinitepower-ipc.appspot.com/o/portfolio_api%2Fativid-7-2_Alterada.jpg?alt=media&token=866785a5-36db-4c59-ab91-0f7f5d7937ee",
+    route: `trabalhos/${joaomanaia.linkName}-${tiagocaetano.linkName}-gimp-7.2`,
   },
   {
     authors: [joaoneves],
@@ -32,7 +40,7 @@ export const postItems: PostTimeLineDataType[] = [
     postTitle: "FICHA DE ATIVIDADE - 7  (7.1) - 21/03/2022  -  GIMP",
     postDescription: "Nessa atividade vamos aprender a utilizar as ferramentas de seleção, modo seleção livre, adicionar canal de transparência, inverter a seleção, retirar seleção, adicionar nova camada, movimentar camada, aplicar filtro, remover olhos vermelhos, adicionar texto à imagem e aplicar efeitos no texto.",
     postImage: "https://firebasestorage.googleapis.com/v0/b/infinitepower-ipc.appspot.com/o/portfolio_api%2FFoto1_Alterada.png?alt=media&token=71125741-8b70-4727-9fd6-35094fde622f",
-    route: `trabalhos/${joaomanaia.linkName}-${tiagocaetano.linkName}-gimp-6.1-6.2`,
+    route: `trabalhos/${joaomanaia.linkName}-${tiagocaetano.linkName}-gimp-7.1`,
   },
   {
     authors: [joaomanaia, tiagocaetano],
