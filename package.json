@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.5",
+    "@react-spring/parallax": "^9.4.4",
     "@types/react-scroll": "^1.8.3",
     "autoprefixer": "^10.4.2",
     "next": "^12.1.0",
