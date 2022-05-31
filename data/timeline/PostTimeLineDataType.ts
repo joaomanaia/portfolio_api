@@ -6,6 +6,7 @@ type PostTimeLineDataType = {
     postTitle: string
     postDescription: string
     postImage: string
+    videoUrl?: string
     route: string
 }
 

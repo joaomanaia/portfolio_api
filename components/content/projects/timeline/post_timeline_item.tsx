@@ -53,11 +53,21 @@ const PostTimeLineItem: React.FC<PostTimeLineItemType> = ({ postData, onMoreInfo
                 <div className={`w-1 h-auto bg-blue-800 mb-4 rounded-2xl`}></div>
                 <div className="rounded-2xl bg-gray-800 p-2 ml-8 w-full mx-12 mb-8">
                     <div className="relative w-full aspect-video">
-                        <Image
-                            src={postData.postImage}
-                            alt={postData.postDescription}
-                            className="rounded-2xl"
-                            layout="fill" />
+                        {postData.videoUrl ? (
+                            <iframe
+                                className="absolute w-full h-full rounded-2xl"
+                                src={postData.videoUrl}
+                                frameBorder="0"
+                                typeof="text/html"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen/>
+                        ) : (
+                            <Image
+                                src={postData.postImage}
+                                alt={postData.postDescription}
+                                className="rounded-2xl"
+                                layout="fill" />
+                        )}
                     </div>
                     <p className="text-white text-xl mt-4">
                         {postData.postTitle}

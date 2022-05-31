@@ -57,11 +57,21 @@ const DefaultWorkPage: NextPage<DefaultWorkPageType> = ({postData}) => {
                 </p>
 
                 <div className="relative w-auto aspect-video mt-12">
-                    <Image
-                        className="rounded-2xl"
-                        src={postData?.postImage || defaultUserPhotoUrl}
-                        alt="Post Image"
-                        layout="fill" />
+                    {postData?.videoUrl ? (
+                        <iframe
+                            className="absolute w-full h-full rounded-2xl"
+                            src={postData.videoUrl}
+                            frameBorder="0"
+                            typeof="text/html"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen/>
+                    ) : (
+                        <Image
+                            className="rounded-2xl"
+                            src={postData?.postImage || defaultUserPhotoUrl}
+                            alt="Post Image"
+                            layout="fill" />
+                    )}
                 </div>
 
                 <p className="fonte-texto">
