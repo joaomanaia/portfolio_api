@@ -7,6 +7,7 @@ import ScrollLinkButton from "../button/scroll_link_button"
 import ParticipantItem from "./participants/participant_item"
 import PostTimelineContent from "./projects/timeline/post_timeline_content"
 import PostTimeLineItem from "./projects/timeline/post_timeline_item"
+import GroupInfoContent from "./start_content/group_info_content"
 import ParticlesContent from "./start_content/particles_content"
 import StartContent from "./start_content/start_content"
 
@@ -36,7 +37,7 @@ const MainContent: React.FC<MainContentType> = ({ setHeaderTransparent }) => {
       ref={ref}
       className='flex flex-col overflow-x-hidden overflow-y-scroll scrollbar-hide bg-black'>
 
-      <Parallax pages={6} style={{ top: '0', left: '0' }}>
+      <Parallax pages={7} style={{ top: '0', left: '0' }}>
         <ParallaxLayer
           offset={0}
           speed={0.5}
@@ -52,7 +53,7 @@ const MainContent: React.FC<MainContentType> = ({ setHeaderTransparent }) => {
         </ParallaxLayer>
 
         <ParallaxLayer
-          sticky={{ start: 1, end: 4 }}
+          sticky={{ start: 1, end: 5 }}
           className="flex justify-start items-center">
           <div className="flex flex-col space-y-12 justify-center items-center w-1/4 h-40 ml-12 xl:ml-64">
             <p className="text-white text-4xl lg:text-5xl xl:text-7xl text-center">
@@ -76,8 +77,16 @@ const MainContent: React.FC<MainContentType> = ({ setHeaderTransparent }) => {
           </div>
         </ParallaxLayer>
 
+
         <ParallaxLayer
           offset={1.5}
+          speed={2}
+          className="flex justify-end items-center">
+          <GroupInfoContent />
+        </ParallaxLayer>
+
+        <ParallaxLayer
+          offset={2.5}
           speed={2}
           className="flex justify-end items-center">
           <div className="flex justify-center items-center w-1/4 h-40 mr-12 xl:mr-64">
@@ -92,8 +101,8 @@ const MainContent: React.FC<MainContentType> = ({ setHeaderTransparent }) => {
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={1.7}
-          speed={1.3}
+          offset={2.8}
+          speed={1.8}
           className="flex justify-end items-center">
           <div className="flex justify-center items-center w-1/4 h-40 mr-12 xl:mr-64">
             <div className="grow flex flex-col items-start lg:items-center justify-center mx-2 ml-12 lg:ml-0">
@@ -108,7 +117,7 @@ const MainContent: React.FC<MainContentType> = ({ setHeaderTransparent }) => {
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={2.5}
+          offset={3.5}
           speed={2}
           className="flex justify-end items-center">
           <div className="flex justify-center items-center w-1/4 h-40 mr-12 xl:mr-64">
@@ -123,8 +132,8 @@ const MainContent: React.FC<MainContentType> = ({ setHeaderTransparent }) => {
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={2.7}
-          speed={1.3}
+          offset={3.8}
+          speed={1.8}
           className="flex justify-end items-center">
           <div className="flex justify-center items-center w-1/4 h-40 mr-12 xl:mr-64">
             <div className="grow flex flex-col items-start lg:items-center justify-center mx-2 ml-12 lg:ml-0">
@@ -139,7 +148,7 @@ const MainContent: React.FC<MainContentType> = ({ setHeaderTransparent }) => {
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={3.5}
+          offset={4.5}
           speed={2}
           className="flex justify-end items-center">
           <div className="flex justify-center items-center w-1/4 h-40 mr-12 xl:mr-64">
@@ -154,8 +163,8 @@ const MainContent: React.FC<MainContentType> = ({ setHeaderTransparent }) => {
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={3.7}
-          speed={1.3}
+          offset={4.8}
+          speed={1.8}
           className="flex justify-end items-center">
           <div className="flex justify-center items-center w-1/4 h-40 mr-12 xl:mr-64">
             <div className="grow flex flex-col items-start lg:items-center justify-center mx-2 ml-12 lg:ml-0">
@@ -170,7 +179,7 @@ const MainContent: React.FC<MainContentType> = ({ setHeaderTransparent }) => {
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={5}
+          offset={6}
           speed={0.5}
           className="flex justify-center items-center">
           <div className="w-screen h-auto flex flex-col items-center justify-center px-8 lg:px-32 xl:px-48 2xl:px-96 py-32">
