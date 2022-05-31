@@ -12,7 +12,7 @@ const PostTimeLineItem: React.FC<PostTimeLineItemType> = ({ postData, onMoreInfo
     const authorImages = postData.authors.map(author => author.photoUrl)
 
     return (
-        <div className="flex flex-col items-start justify-center w-full h-auto">
+        <div className="flex flex-col items-start justify-center w-full">
             <div className="flex">
                 {authorImages.length == 1 ? (
                     <div className="relative w-11 h-11">
