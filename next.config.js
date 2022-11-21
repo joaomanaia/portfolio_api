@@ -7,6 +7,9 @@ const nextConfig = {
       "lh3.googleusercontent.com",
       "cdn.discordapp.com"
     ]
+  },
+  experimental: {
+    appDir: true
   }
 }
 
