@@ -14,6 +14,7 @@ const HeaderLink: React.FC<HeaderLinkType> = ({text, to, offset, headerTranspare
     const [active, setActive] = useState(false)
     
     return (
+        // @ts-ignore
         <Link
             activeClass="active"
             onSetActive={() => setActive(true)}

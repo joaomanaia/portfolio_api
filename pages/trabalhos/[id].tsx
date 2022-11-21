@@ -22,6 +22,7 @@ const DefaultWorkPage: NextPage<DefaultWorkPageType> = ({postData}) => {
     }, [])
 
     return (
+        // @ts-ignore
         <Element 
             name="main"
             className="flex flex-col w-screen bg-black text-white">

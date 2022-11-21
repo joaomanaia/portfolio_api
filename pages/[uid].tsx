@@ -23,6 +23,7 @@ const DefaultWorkPage: NextPage<UserPageType> = ({user, postsByUser}) => {
     }, [])
 
     return (
+        // @ts-ignore
         <Element 
             name="main"
             className="flex flex-col w-screen bg-black text-white">

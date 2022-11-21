@@ -1,4 +1,4 @@
-import { ArrowCircleDownIcon } from "@heroicons/react/outline"
+import { ArrowDownCircleIcon } from "@heroicons/react/24/outline"
 import { Element, Link } from "react-scroll"
 import Particles from "react-tsparticles"
 import ScrollLinkButton from "../button/scroll_link_button"
@@ -8,6 +8,7 @@ type StartContentType = {}
 const StartContent: React.FC<StartContentType> = () => {
 
     return (
+        // @ts-ignore
         <Element
             name="home"
             className="relative">
@@ -76,12 +77,13 @@ const StartContent: React.FC<StartContentType> = () => {
                     <ScrollLinkButton text="Continuar" to="participants" />
                 </div>
                 <div className='flex w-full h-64 bg-gradient-to-b from-transparent to-blue-900 items-center justify-center'>
+                    {/** @ts-ignore */}
                     <Link
                         to="participants"
                         smooth={true}
                         duration={500}
                         className='mt-32 h-12 w-12 animate-bounce text-white cursor-pointer hover:text-blue-200'>
-                        <ArrowCircleDownIcon />
+                        <ArrowDownCircleIcon />
                     </Link>
                 </div>
             </div>
