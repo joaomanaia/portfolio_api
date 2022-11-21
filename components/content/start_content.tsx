@@ -1,4 +1,4 @@
-import { ArrowCircleDownIcon } from "@heroicons/react/outline"
+import { ArrowDownCircleIcon } from "@heroicons/react/24/outline"
 import { Element, Link } from "react-scroll"
 import Particles from "react-tsparticles"
 import ScrollLinkButton from "../button/scroll_link_button"
@@ -81,7 +81,7 @@ const StartContent: React.FC<StartContentType> = () => {
                         smooth={true}
                         duration={500}
                         className='mt-32 h-12 w-12 animate-bounce text-white cursor-pointer hover:text-blue-200'>
-                        <ArrowCircleDownIcon />
+                        <ArrowDownCircleIcon />
                     </Link>
                 </div>
             </div>

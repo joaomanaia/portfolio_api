@@ -1,6 +1,6 @@
 import { Link } from "react-scroll"
 import HeaderLink from "./header_link"
-import { XIcon, MenuIcon } from "@heroicons/react/solid"
+import { XMarkIcon, Bars3Icon } from "@heroicons/react/24/solid"
 import { useEffect, useState } from "react"
 
 type HeaderType = {
@@ -36,7 +36,7 @@ const Header: React.FC<HeaderType> = ({ headerTransparent }) => {
                     <div
                         onClick={() => setHeaderToolsVisible(true)}
                         className="h-10 w-10 p-2 md:invisible rounded-full hover:bg-blue-500/30 cursor-pointer">
-                        <MenuIcon />
+                        <Bars3Icon />
                     </div>
                 </div>
             )}
@@ -46,7 +46,7 @@ const Header: React.FC<HeaderType> = ({ headerTransparent }) => {
                     <div
                         onClick={() => setHeaderToolsVisible(false)}
                         className="md:invisible h-10 w-10 p-2 cursor-pointer hover:bg-blue-500/30 rounded-full">
-                        <XIcon />
+                        <XMarkIcon />
                     </div>
 
                     <HeaderLink
