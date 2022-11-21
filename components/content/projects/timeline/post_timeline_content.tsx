@@ -10,6 +10,7 @@ const PostTimelineContent: React.FC<PostTimelineContentType> = () => {
     const router = Router
 
     return (
+        // @ts-ignore
         <Element 
             id="projects"
             name="projects"

@@ -10,6 +10,7 @@ const ParticipantsContent: React.FC<ParticipantsContentType> = () => {
     const router = Router
 
     return (
+        // @ts-ignore
         <Element
             name="participants"
             className='flex flex-col h-screen w-screen bg-black'>

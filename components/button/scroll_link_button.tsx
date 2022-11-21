@@ -8,6 +8,7 @@ type ScrollLinkButtonType = {
 
 const ScrollLinkButton: React.FC<ScrollLinkButtonType> = ({text, to, offset}) => {
     return (
+        // @ts-ignore
         <Link
             activeClass="active"
             type="submit"

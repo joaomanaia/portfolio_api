@@ -8,6 +8,7 @@ type StartContentType = {}
 const StartContent: React.FC<StartContentType> = () => {
 
     return (
+        // @ts-ignore
         <Element
             name="home"
             className="relative">
@@ -76,6 +77,7 @@ const StartContent: React.FC<StartContentType> = () => {
                     <ScrollLinkButton text="Continuar" to="participants" />
                 </div>
                 <div className='flex w-full h-64 bg-gradient-to-b from-transparent to-blue-900 items-center justify-center'>
+                    {/** @ts-ignore */}
                     <Link
                         to="participants"
                         smooth={true}
