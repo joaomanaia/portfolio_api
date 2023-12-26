@@ -1,9 +1,11 @@
-import { PageContent } from "./components/page-content";
+import { StartContent } from "./components/start-content"
+import { TransparentHeader } from "../components/header/transparent-header"
 
 export default function Page() {
   return (
     <>
-      <PageContent />
+      <TransparentHeader />
+      <StartContent />
       <div className="h-screen">a</div>
       <div className="h-screen">b</div>
     </>
