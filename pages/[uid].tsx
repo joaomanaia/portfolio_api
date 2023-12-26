@@ -33,7 +33,7 @@ const DefaultWorkPage: NextPage<UserPageType> = ({user, postsByUser}) => {
             <NormalHeader />
 
             <div className="w-screen flex flex-col items-center justify-center px-8 lg:px-32 xl:px-48 2xl:px-96 py-32">
-                {postsByUser.map(data => (
+                {postsByUser?.map(data => (
                     <PostTimeLineItem
                         key={data.route}
                         postData={data}
@@ -46,6 +46,7 @@ const DefaultWorkPage: NextPage<UserPageType> = ({user, postsByUser}) => {
 
 export default DefaultWorkPage
 
+/*
 export const getServerSideProps: GetServerSideProps = async (content) => {
     const uid = content.params?.uid
 
@@ -69,3 +70,4 @@ export const getServerSideProps: GetServerSideProps = async (content) => {
         }
     }
 }
+*/
