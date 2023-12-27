@@ -17,7 +17,7 @@ export const postItems: PostTimeLineDataType[] = [
     postDescription: "Video da apresentação do trabalho final da disciplina Aplicações Informáticas B na ExpoSicó22, em Condeixa-a-Nova, no dia 14 e 15 de Maio de 2022.",
     postImage: "https://firebasestorage.googleapis.com/v0/b/infinitepower-ipc.appspot.com/o/portfolio_api%2FScreenshot%20from%20projeto%20final2.mp4.png?alt=media&token=389250c0-7861-4ad0-b087-54d6296abb9a",
     route: `${joaomanaia.linkName}${tiagocaetano.linkName}-${joaoneves.linkName}-projeto-final`,
-    videoUrl: "https://www.youtube.com/embed/sO9XUu_UTHk"
+    videoId: "sO9XUu_UTHk"
   },
   {
     authors: [joaoneves],

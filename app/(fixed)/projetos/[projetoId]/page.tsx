@@ -5,6 +5,7 @@ import PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"
 import { Metadata } from "next"
 import Image from "next/image"
 import { redirect } from "next/navigation"
+import { YouTubeEmbed } from "@next/third-parties/google"
 
 const getProjeto = async (projetoId: string): Promise<PostTimeLineDataType | undefined> => {
   return findPostByRoute(projetoId)
@@ -44,13 +45,11 @@ export default async function ProjetoPage({ params }: { params: { projetoId: str
       <h1 className="text-3xl font-semibold mt-4">{projeto?.postTitle}</h1>
 
       <div className="relative w-auto aspect-video mt-8">
-        {projeto?.videoUrl ? (
-          <iframe
-            className="absolute w-full h-full rounded-2xl"
-            src={projeto.videoUrl}
-            typeof="text/html"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
+        {projeto?.videoId ? (
+          <YouTubeEmbed
+            videoid={projeto.videoId}
+            params="controls=0"
+            style="position: absolute; min-width: 100%; width: 100%; height: 100%; border-radius: 1rem;"
           />
         ) : (
           <Image

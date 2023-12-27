@@ -1,10 +1,10 @@
-import { UserType } from "@/common/common"
 import { Button } from "@/components/ui/button"
 import PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"
 import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 import { ProjectAuthors } from "./project-authors"
+import { YouTubeEmbed } from "@next/third-parties/google"
 
 interface ProjectTimelineItemProps {
   project: PostTimeLineDataType
@@ -19,13 +19,11 @@ export const ProjectTimelineItem: React.FC<ProjectTimelineItemProps> = ({ projec
         <div className={`w-1 h-auto bg-primary mb-4 rounded-2xl`}></div>
         <div className="rounded-2xl bg-accent text-accent-foreground p-2 ml-8 w-full mx-12 mb-8">
           <div className="relative w-full aspect-video">
-            {project.videoUrl ? (
-              <iframe
-                className="absolute w-full h-full rounded-2xl"
-                src={project.videoUrl}
-                typeof="text/html"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+            {project.videoId ? (
+              <YouTubeEmbed
+                videoid={project.videoId}
+                params="controls=0"
+                style="position: absolute; min-width: 100%; width: 100%; height: 100%; border-radius: 1rem;"
               />
             ) : (
               <Image
