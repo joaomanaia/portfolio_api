@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://portfolio-api-joaomanaia.vercel.app/
+
+# Sitemaps
+Sitemap: https://portfolio-api-joaomanaia.vercel.app/sitemap.xml
