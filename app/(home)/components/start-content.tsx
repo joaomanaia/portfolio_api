@@ -16,7 +16,7 @@ export const StartContent: React.FC = () => {
             Somos um grupo de trabalho de
             <span className="text-primary lg:mt-4">Aplicações informaticas</span>
           </p>
-          <ScrollLinkButton to="participants">Continuar</ScrollLinkButton>
+          <ScrollLinkButton to="participants">Ver Participantes</ScrollLinkButton>
         </div>
         <Link
             to="participants"
