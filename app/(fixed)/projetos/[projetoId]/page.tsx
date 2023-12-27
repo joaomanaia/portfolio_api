@@ -19,6 +19,7 @@ export async function generateMetadata({
   const projeto = await getProjeto(params.projetoId)
 
   const images = projeto?.postImage ? [projeto?.postImage] : []
+  const authors = projeto?.authors?.map((author) => author.name).join(", ")
 
   return {
     title: projeto?.postTitle,
@@ -28,6 +29,7 @@ export async function generateMetadata({
       description: projeto?.postDescription,
       images: images,
     },
+    publisher: authors,
   }
 }
 

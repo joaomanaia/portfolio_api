@@ -14,6 +14,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const projeto = await getProjeto()
 
   const images = projeto?.postImage ? [projeto?.postImage] : []
+  const authors = projeto
+    ?.authors
+    ?.map((author) => author.name)
+    .join(", ")
 
   return {
     title: projeto?.postTitle,
@@ -22,7 +26,16 @@ export async function generateMetadata(): Promise<Metadata> {
       title: projeto?.postTitle,
       description: projeto?.postDescription,
       images: images,
-    }
+    },
+    keywords: [
+      "Sistema de cores",
+      "RGB",
+      "CMYK",
+      "HSV",
+      "YUV",
+      "Sistema cromático",
+    ],
+    publisher: authors,
   }
 }
 
@@ -48,7 +61,7 @@ export default async function PostPage() {
         />
       </div>
 
-      <p className="fonte-titulo">Introdução</p>
+      <h2 className="fonte-titulo">Introdução</h2>
       <p className="fonte-texto">
         Todos os dias, à nossa volta somos cercados por objetos diversos, como, carros, comboios,
         árvores, casas, canetas, livros, etc. Percebemos que muitos objetos apresentam cores iguais,
@@ -56,7 +69,7 @@ export default async function PostPage() {
         frequência da luz, pois, uma vez que a luz é uma radiação, a cada uma das cores que se
         apresentam no espectro, corresponde uma frequência específica.
       </p>
-      <p className="fonte-titulo">Sistema cromático:</p>
+      <h2 className="fonte-titulo">Sistema cromático:</h2>
       <div className="relative w-56 md:w-64 lg:w-72 xl:w-80 aspect-square mt-12">
         <Image
           className="rounded-full"
@@ -65,7 +78,7 @@ export default async function PostPage() {
           layout="fill"
         />
       </div>
-      <p className="fonte-titulo">RGB definição e exemplo:</p>
+      <h2 className="fonte-titulo">RGB definição e exemplo:</h2>
       <p className="fonte-texto">
         RGB é uma abreviatura de um sistema de cores aditivas em que o red(vermelho), o green(verde)
         e o blue(azul), tudo combinado forma um espectro cromático. O propósito principal do sistema
@@ -79,7 +92,7 @@ export default async function PostPage() {
           layout="fill"
         />
       </div>
-      <p className="fonte-titulo">CMYK definição e exemplo:</p>
+      <h2 className="fonte-titulo">CMYK definição e exemplo:</h2>
       <p className="fonte-texto">
         CMYK é uma abreviatura de um sistema de cores subtrativas formado por: cyan(ciano), magenta,
         yellow(amarelo) e black(preto, utiliza-se o k em vez do B para não confundir com o B de blue
@@ -93,7 +106,7 @@ export default async function PostPage() {
           layout="fill"
         />
       </div>
-      <p className="fonte-titulo">HSV definição e exemplo:</p>
+      <h2 className="fonte-titulo">HSV definição e exemplo:</h2>
       <p className="fonte-texto">
         HSV é a abreviatura para o sistema de cores formadas pelas componentes hue (matiz),
         saturation (saturação) e value (valor). O modelo HSV baseia- se na perceção humana da cor do
@@ -108,7 +121,7 @@ export default async function PostPage() {
           layout="fill"
         />
       </div>
-      <p className="fonte-titulo">YUV definição e exemplo:</p>
+      <h2 className="fonte-titulo">YUV definição e exemplo:</h2>
       <p className="fonte-texto">
         YUV é um sistema de codificação de cores normalmente usado como parte de um pipeline de
         imagens coloridas (pipeline é uma técnica usada em processadores). Ele codifica uma imagem

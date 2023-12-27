@@ -12,10 +12,11 @@ export const StartContent: React.FC = () => {
 
       <section className="flex z-10 flex-col w-full h-screen bg-background/50">
         <div className="z-10 flex flex-col mt-36 items-center justify-center mx-12 space-y-8 xl:mx-24 grow">
-          <p className="flex flex-col text-foreground text-2xl md:text-3xl lg:text-5xl xl:text-7xl">
+          <h1 className="flex flex-col text-foreground text-2xl md:text-3xl lg:text-5xl xl:text-7xl">
             Somos um grupo de trabalho de
+            <br />
             <span className="text-primary lg:mt-4">Aplicações informaticas</span>
-          </p>
+          </h1>
           <ScrollLinkButton to="participants">Ver Participantes</ScrollLinkButton>
         </div>
         <Link

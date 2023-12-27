@@ -11,6 +11,16 @@ const fontSans = FontSans({
 
 export const metadata: Metadata = {
   title: "Portfolio API",
+  description:
+    "Grupo de trabalho na disciplina de Aplicações Informaticas B. No ano letivo 2021/2022.",
+  keywords: [
+    "Portfolio",
+    "Aplicações Informaticas",
+    "Aplicações Informaticas B",
+    "Next.js",
+    "React",
+    "TypeScript",
+  ],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

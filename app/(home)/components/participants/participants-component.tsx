@@ -20,13 +20,13 @@ export const ParticipantsContent: React.FC = () => {
             <span className="text-primary">Grupo</span>
           </p>
           {/* O col-span controlla o quão grande o comprimento vai ocupar */}
-          <p className="lg:row-span-2 lg:col-span-7 text-lg xl:text-xl flex lg:items-end">
+          <h2 className="lg:row-span-2 lg:col-span-7 text-lg xl:text-xl flex lg:items-end">
             Constituido por 3 elementos, João Neves, João Manaia e Tiago Caetano este é o melhor
             grupo da turma!
             <br />
             Criamos projetos originais como este site. Se viram algum site parecido com este foram
             eles é que nos copiaram.
-          </p>
+          </h2>
           <ScrollLinkButton to="projects" className="lg:col-span-7 place-self-center lg:place-self-start">
             Ver Projetos
           </ScrollLinkButton>
