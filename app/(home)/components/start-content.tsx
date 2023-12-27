@@ -3,7 +3,7 @@
 import { ArrowUpCircle } from "lucide-react"
 import { Element, Link } from "react-scroll"
 import { BackgroundParticles } from "./background-particles"
-import { Button } from "@/components/ui/button"
+import { ScrollLinkButton } from "./scroll-link-button"
 
 export const StartContent: React.FC = () => {
   return (
@@ -19,39 +19,14 @@ export const StartContent: React.FC = () => {
           <ScrollLinkButton to="participants">Ver Participantes</ScrollLinkButton>
         </div>
         <Link
-            to="participants"
-            smooth={true}
-            duration={500}
-            className=" self-center mt-32 mb-8 h-12 w-12 animate-bounce text-foreground hover:text-foreground/80 transition cursor-pointer"
-          >
-            <ArrowUpCircle className="h-12 w-12 rotate-180" />
-          </Link>
+          to="participants"
+          smooth={true}
+          duration={500}
+          className=" self-center mt-32 mb-8 h-12 w-12 animate-bounce text-foreground hover:text-foreground/80 transition cursor-pointer"
+        >
+          <ArrowUpCircle className="h-12 w-12 rotate-180" />
+        </Link>
       </section>
     </Element>
-  )
-}
-
-type ScrollLinkButtonType = {
-  to: string
-  offset?: number | undefined
-  children?: React.ReactNode
-}
-
-const ScrollLinkButton: React.FC<ScrollLinkButtonType> = ({ to, offset, children }) => {
-  return (
-    <Button asChild className="w-40">
-      <Link
-        activeClass="active"
-        type="submit"
-        to={to}
-        spy={true}
-        smooth={true}
-        offset={offset}
-        duration={500}
-        className="cursor-pointer"
-      >
-        {children}
-      </Link>
-    </Button>
   )
 }
