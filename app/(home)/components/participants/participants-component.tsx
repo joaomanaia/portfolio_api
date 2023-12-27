@@ -27,7 +27,7 @@ export const ParticipantsContent: React.FC = () => {
             Criamos projetos originais como este site. Se viram algum site parecido com este foram
             eles é que nos copiaram.
           </p>
-          <ScrollLinkButton to="projetos" className="lg:col-span-7 place-self-center lg:place-self-start">
+          <ScrollLinkButton to="projects" className="lg:col-span-7 place-self-center lg:place-self-start">
             Ver Projetos
           </ScrollLinkButton>
         </div>
