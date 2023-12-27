@@ -11,6 +11,9 @@ const fontSans = FontSans({
 
 export const metadata: Metadata = {
   title: "Portfolio API",
+  icons: {
+    icon: "/favicon.ico",
+  },
   description:
     "Grupo de trabalho na disciplina de Aplicações Informaticas B. No ano letivo 2021/2022.",
   keywords: [
@@ -28,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
         <ThemeProvider
           attribute="class"
