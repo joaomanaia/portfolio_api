@@ -6,7 +6,7 @@ import React from "react"
 
 interface ProjectAuthorsProps {
   authors: UserType[]
-  postDate: string
+  postDate: Date
   horizontal?: boolean
 }
 
@@ -15,13 +15,17 @@ export const ProjectAuthors: React.FC<ProjectAuthorsProps> = ({
   postDate,
   horizontal,
 }) => {
+  const date = new Date(postDate)
+
   return (
     <div className="flex">
       <AuthorsImages authors={authors} horizontal={horizontal} />
 
       <div className="ml-4">
         <AuthorsNames authors={authors} />
-        <p className="text-foreground/50 mb-4">{postDate}</p>
+        <time dateTime={date.toISOString()} itemProp="datePublished" className="text-foreground/50 mb-4">
+          {postDate.toLocaleDateString()}
+        </time>
       </div>
     </div>
   )

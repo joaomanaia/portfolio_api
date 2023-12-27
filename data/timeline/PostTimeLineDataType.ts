@@ -2,7 +2,7 @@ import { UserType } from "../../common/common"
 
 type PostTimeLineDataType = {
     authors: UserType[]
-    postDate: string
+    postDate: Date
     postTitle: string
     postDescription: string
     postImage: string
