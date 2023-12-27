@@ -3,6 +3,7 @@ import { Inter as FontSans } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 import { cn } from "@/lib/utils"
+import { GoogleTagManager } from "@next/third-parties/google"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           {children}
         </ThemeProvider>
+        <GoogleTagManager gtmId="G-DK3BCFQJH0" />
       </body>
     </html>
   )
