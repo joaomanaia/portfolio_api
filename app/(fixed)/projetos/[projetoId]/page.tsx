@@ -2,11 +2,32 @@ import { ProjectAuthors } from "@/app/(home)/components/projects/project-authors
 import { defaultUserPhotoUrl } from "@/common/common"
 import { findPostByRoute } from "@/data/timeline/PostTimeLineData"
 import PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"
+import { Metadata } from "next"
 import Image from "next/image"
 import { redirect } from "next/navigation"
 
 const getProjeto = async (projetoId: string): Promise<PostTimeLineDataType | undefined> => {
   return findPostByRoute(projetoId)
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { projetoId: string }
+}): Promise<Metadata> {
+  const projeto = await getProjeto(params.projetoId)
+
+  const images = projeto?.postImage ? [projeto?.postImage] : []
+
+  return {
+    title: projeto?.postTitle,
+    description: projeto?.postDescription,
+    openGraph: {
+      title: projeto?.postTitle,
+      description: projeto?.postDescription,
+      images: images,
+    },
+  }
 }
 
 export default async function ProjetoPage({ params }: { params: { projetoId: string } }) {

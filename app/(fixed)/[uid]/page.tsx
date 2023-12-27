@@ -2,12 +2,27 @@ import { ProjectTimelineItem } from "@/app/(home)/components/projects/project-ti
 import { findUserByLinkName } from "@/common/common"
 import { getPostsByUser } from "@/data/timeline/PostTimeLineData"
 import PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"
+import { Metadata } from "next"
 
 const getProjectsByUser = async (uid: string): Promise<PostTimeLineDataType[]> => {
   const user = findUserByLinkName(uid)
   if (!user) return []
 
   return getPostsByUser(user)
+}
+
+export async function generateMetadata({ params }: { params: { uid: string } }): Promise<Metadata> {
+  const user = findUserByLinkName(params.uid)
+
+  const userPhoto = user?.photoUrl ? [user?.photoUrl] : []
+
+  return {
+    title: user?.name,
+    openGraph: {
+      title: user?.name,
+      images: userPhoto,
+    },
+  }
 }
 
 export default async function UserPage({ params }: { params: { uid: string } }) {
