@@ -10,7 +10,11 @@ interface ProjectAuthorsProps {
   horizontal?: boolean
 }
 
-export const ProjectAuthors: React.FC<ProjectAuthorsProps> = ({ authors, postDate, horizontal }) => {
+export const ProjectAuthors: React.FC<ProjectAuthorsProps> = ({
+  authors,
+  postDate,
+  horizontal,
+}) => {
   return (
     <div className="flex">
       <AuthorsImages authors={authors} horizontal={horizontal} />
@@ -32,7 +36,7 @@ const AuthorsNames: React.FC<AuthorsNamesProps> = ({ authors }) => {
     <p className="text-foreground text-lg">
       {authors.map((author, index) => (
         <React.Fragment key={author.linkName}>
-          <Link href={author.linkName}>{author.name}</Link>
+          <Link href={`/${author.linkName}`}>{author.name}</Link>
           {index < authors.length - 1 && ", "}
         </React.Fragment>
       ))}
@@ -66,7 +70,7 @@ const AuthorsImages: React.FC<AuthorsImagesProps> = ({ authors, horizontal }) =>
           key={author.linkName}
           className="relative w-11 h-11 border-2 border-primary rounded-full"
         >
-          <Link href={author.linkName}>
+          <Link href={`/${author.linkName}`}>
             <Image
               className="rounded-full"
               src={author.photoUrl}
