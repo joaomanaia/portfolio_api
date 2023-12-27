@@ -2,15 +2,14 @@ import { UserType } from "@/common/common"
 import { Button } from "@/components/ui/button"
 import PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"
 import Image from "next/image"
+import Link from "next/link"
+import React from "react"
 
 interface ProjectTimelineItemProps {
   project: PostTimeLineDataType
 }
 
 export const ProjectTimelineItem: React.FC<ProjectTimelineItemProps> = ({ project }) => {
-  const authorNames = project.authors.map((author) => author.name)
-  const authorImages = project.authors.map((author) => author.photoUrl)
-
   return (
     <li className="flex flex-col items-start justify-center w-full h-auto">
       <div className="flex">
@@ -18,7 +17,7 @@ export const ProjectTimelineItem: React.FC<ProjectTimelineItemProps> = ({ projec
 
         <div className="ml-4">
           <p className="text-foreground/50">{project.postDate}</p>
-          <p className="text-foreground text-lg">{authorNames.join(", ")}</p>
+          <AuthorsNames authors={project.authors} />
         </div>
       </div>
 
@@ -52,6 +51,23 @@ export const ProjectTimelineItem: React.FC<ProjectTimelineItemProps> = ({ projec
   )
 }
 
+interface AuthorsNamesProps {
+  authors: UserType[]
+}
+
+const AuthorsNames: React.FC<AuthorsNamesProps> = ({ authors }) => {
+  return (
+    <p className="text-foreground text-lg">
+      {authors.map((author, index) => (
+        <React.Fragment key={author.linkName}>
+          <Link href={author.linkName}>{author.name}</Link>
+          {index < authors.length - 1 && ", "}
+        </React.Fragment>
+      ))}
+    </p>
+  )
+}
+
 interface AuthorsImagesProps {
   authors: UserType[]
 }
@@ -59,14 +75,14 @@ interface AuthorsImagesProps {
 const AuthorsImages: React.FC<AuthorsImagesProps> = ({ authors }) => {
   if (authors.length == 1) {
     return (
-      <div className="relative w-11 h-11">
+      <Link href={authors[0].linkName} className="relative w-11 h-11">
         <Image
           className="rounded-full"
           src={authors[0].photoUrl}
           alt={authors[0].name}
           layout="fill"
         />
-      </div>
+      </Link>
     )
   }
 
@@ -77,13 +93,15 @@ const AuthorsImages: React.FC<AuthorsImagesProps> = ({ authors }) => {
           key={author.linkName}
           className="relative w-11 h-11 border-2 border-primary rounded-full"
         >
-          <Image
-            className="rounded-full"
-            src={author.photoUrl}
-            alt={author.name}
-            layout="fill"
-            objectFit="cover"
-          />
+          <Link href={author.linkName}>
+            <Image
+              className="rounded-full"
+              src={author.photoUrl}
+              alt={author.name}
+              layout="fill"
+              objectFit="cover"
+            />
+          </Link>
         </div>
       ))}
     </div>
