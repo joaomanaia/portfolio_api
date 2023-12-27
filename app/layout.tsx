@@ -24,9 +24,7 @@ export const metadata: Metadata = {
     "React",
     "TypeScript",
   ],
-  robots: {
-    index: true,
-  }
+  robots: "index, follow"
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
