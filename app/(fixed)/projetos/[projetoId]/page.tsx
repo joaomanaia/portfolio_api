@@ -30,6 +30,9 @@ export async function generateMetadata({
       images: images,
     },
     publisher: authors,
+    robots: {
+      index: true,
+    }
   }
 }
 

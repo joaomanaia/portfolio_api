@@ -36,6 +36,9 @@ export async function generateMetadata(): Promise<Metadata> {
       "Sistema cromático",
     ],
     publisher: authors,
+    robots: {
+      index: true,
+    }
   }
 }
 
