@@ -18,7 +18,7 @@ export const ProjectAuthors: React.FC<ProjectAuthorsProps> = ({
   const date = new Date(postDate)
 
   return (
-    <div className="flex">
+    <div className="flex items-center">
       <AuthorsImages authors={authors} horizontal={horizontal} />
 
       <div className="ml-4">

@@ -1,11 +1,13 @@
 import { ProjectAuthors } from "@/app/(home)/components/projects/project-authors"
 import { defaultUserPhotoUrl } from "@/common/common"
 import { findPostByRoute } from "@/data/timeline/PostTimeLineData"
-import PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"
-import { Metadata } from "next"
+import type PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"
+import { type Metadata } from "next"
 import Image from "next/image"
 import { redirect } from "next/navigation"
 import { YouTubeEmbed } from "@next/third-parties/google"
+import { MDXRemote } from "next-mdx-remote/rsc"
+import remarkGfm from "remark-gfm"
 
 const getProjeto = async (projetoId: string): Promise<PostTimeLineDataType | undefined> => {
   return findPostByRoute(projetoId)
@@ -23,16 +25,16 @@ export async function generateMetadata({
 
   return {
     title: projeto?.postTitle,
-    description: projeto?.postDescription,
+    description: projeto?.content,
     openGraph: {
       title: projeto?.postTitle,
-      description: projeto?.postDescription,
+      description: projeto?.content,
       images: images,
     },
     publisher: authors,
     robots: {
       index: true,
-    }
+    },
   }
 }
 
@@ -44,12 +46,12 @@ export default async function ProjetoPage({ params }: { params: { projetoId: str
   }
 
   return (
-    <div className="py-8 px-12 md:px-44 xl:px-96 h-auto w-auto">
+    <>
       <ProjectAuthors authors={projeto.authors} postDate={projeto.postDate} horizontal />
 
       <h1 className="text-3xl font-semibold mt-4">{projeto?.postTitle}</h1>
 
-      <div className="relative w-auto aspect-video mt-8">
+      <div className="relative w-full aspect-video mt-8">
         {projeto?.videoId ? (
           <YouTubeEmbed
             videoid={projeto.videoId}
@@ -66,7 +68,20 @@ export default async function ProjetoPage({ params }: { params: { projetoId: str
         )}
       </div>
 
-      <p className="fonte-texto mt-4">{projeto?.postDescription}</p>
-    </div>
+      {projeto.content ? (
+        <section className="w-full mt-4 prose lg:prose-xl dark:prose-invert">
+          <MDXRemote
+            source={projeto.content}
+            options={{
+              mdxOptions: {
+                remarkPlugins: [remarkGfm],
+              },
+            }}
+          />
+        </section>
+      ) : (
+        <p className="fonte-texto mt-4">{projeto.postDescription}</p>
+      )}
+    </>
   )
 }

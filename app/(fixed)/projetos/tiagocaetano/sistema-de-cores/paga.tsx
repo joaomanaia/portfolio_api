@@ -27,10 +27,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: projeto?.postTitle,
-    description: projeto?.postDescription,
+    description: projeto?.content,
     openGraph: {
       title: projeto?.postTitle,
-      description: projeto?.postDescription,
+      description: projeto?.content,
       images: images,
     },
     keywords: ["Sistema de cores", "RGB", "CMYK", "HSV", "YUV", "Sistema cromático"],
