@@ -2,7 +2,20 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["firebasestorage.googleapis.com", "lh3.googleusercontent.com", "cdn.discordapp.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.discordapp.com",
+      },
+    ],
   },
   async headers() {
     if (process.env.NODE_ENV !== "production") return []
