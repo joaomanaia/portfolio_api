@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 import { GoogleTagManager } from "@next/third-parties/google"
+import Background from "./components/background"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     "React",
     "TypeScript",
   ],
-  robots: "index, follow"
+  robots: "index, follow",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -38,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Background>{children}</Background>
         </ThemeProvider>
         <GoogleTagManager gtmId="G-DK3BCFQJH0" />
       </body>

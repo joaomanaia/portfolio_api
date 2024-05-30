@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss"
-const { fontFamily } = require("tailwindcss/defaultTheme")
+import { fontFamily } from "tailwindcss/defaultTheme"
 
 const config = {
   darkMode: ["class"],
@@ -11,6 +11,9 @@ const config = {
 	],
   prefix: "",
   theme: {
+    backgroundImage: {
+      "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+    },
     container: {
       center: true,
       padding: "2rem",
