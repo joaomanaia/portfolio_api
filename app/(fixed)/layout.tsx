@@ -4,7 +4,7 @@ export default function FixedLayout({ children }: { children: React.ReactNode })
   return (
     <>
       <FixedHeader />
-      <main>{children}</main>
+      <main className="container max-w-5xl">{children}</main>
     </>
   )
 }

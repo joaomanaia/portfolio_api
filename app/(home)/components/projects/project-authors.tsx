@@ -3,6 +3,9 @@ import { cn } from "@/lib/utils"
 import Image from "next/image"
 import Link from "next/link"
 import React from "react"
+import { formatDistance } from "date-fns"
+import { pt } from "date-fns/locale/pt"
+import getNow from "@/lib/getNow"
 
 interface ProjectAuthorsProps {
   authors: UserType[]
@@ -15,7 +18,9 @@ export const ProjectAuthors: React.FC<ProjectAuthorsProps> = ({
   postDate,
   horizontal,
 }) => {
+  const now = getNow()
   const date = new Date(postDate)
+  const published = formatDistance(date, now, { addSuffix: true, locale: pt })
 
   return (
     <div className="flex items-center">
@@ -23,8 +28,12 @@ export const ProjectAuthors: React.FC<ProjectAuthorsProps> = ({
 
       <div className="ml-4">
         <AuthorsNames authors={authors} />
-        <time dateTime={date.toISOString()} itemProp="datePublished" className="text-foreground/50 mb-4">
-          {postDate.toLocaleDateString()}
+        <time
+          dateTime={date.toISOString()}
+          itemProp="datePublished"
+          className="text-foreground/50 mb-4"
+        >
+          {published}
         </time>
       </div>
     </div>

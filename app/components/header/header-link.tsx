@@ -11,14 +11,9 @@ interface HeaderLinkProps {
 export const HeaderLink: React.FC<HeaderLinkProps> = ({ children, to, headerTransparent }) => {
   return (
     <li>
-      <Button asChild variant="outline">
+      <Button asChild variant="outline" className="border-secondary-foreground/10 hover:bg-secondary-foreground/5">
         <Link
-          className={cn(
-            "transition bg-transparent duration-300 ease-in-out cursor-pointer",
-            headerTransparent
-              ? "text-inherit"
-              : "text-secondary-foreground border-secondary-foreground/10"
-          )}
+          className="transition bg-transparent duration-300 ease-in-out cursor-pointer text-inherit"
           activeStyle={{
             backgroundColor: headerTransparent
               ? "hsl(var(--secondary))"

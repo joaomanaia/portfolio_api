@@ -25,8 +25,8 @@ export const TransparentHeader: React.FC = () => {
   return (
     <header
       className={cn(
-        "fixed flex items-center justify-between top-0 z-50 w-screen px-4 h-16 transition duration-500 ease-in-out",
-        isHeaderTransparent ? "bg-transparent backdrop-blur-sm" : "bg-secondary"
+        "fixed flex items-center bg-transparent justify-between top-0 z-50 w-screen px-4 h-16 transition duration-500 ease-in-out",
+        isHeaderTransparent ? "backdrop-blur-sm" : "backdrop-blur-xl"
       )}
     >
       <Button
@@ -43,13 +43,13 @@ export const TransparentHeader: React.FC = () => {
       <nav>
         <ul className="flex space-x-4">
           <HeaderLink to="home" headerTransparent={isHeaderTransparent}>
-            Home
+            Inicio
           </HeaderLink>
           <HeaderLink to="participants" headerTransparent={isHeaderTransparent}>
-            Participants
+            Participantes
           </HeaderLink>
           <HeaderLink to="projects" headerTransparent={isHeaderTransparent}>
-            Projects
+            Projetos
           </HeaderLink>
         </ul>
       </nav>
