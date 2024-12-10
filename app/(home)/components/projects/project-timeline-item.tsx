@@ -12,7 +12,7 @@ interface ProjectTimelineItemProps {
 
 export const ProjectTimelineItem: React.FC<ProjectTimelineItemProps> = ({ project }) => {
   return (
-    <li className="w-full flex flex-col items-start justify-center w-full h-auto">
+    <li className="w-full flex flex-col items-start justify-center h-auto">
       <ProjectAuthors authors={project.authors} postDate={project.postDate} />
 
       <div className="grow flex ml-5 mt-1 w-full">

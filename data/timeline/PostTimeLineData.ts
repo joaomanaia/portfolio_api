@@ -49,7 +49,7 @@ export const postItems: PostTimeLineDataType[] = [
       "Nessa atividade vamos aprender a utilizar as ferramentas de seleção, modo seleção livre, adicionar canal de transparência, inverter a seleção, retirar seleção, adicionar nova camada, movimentar camada, aplicar filtro, remover olhos vermelhos, adicionar texto à imagem e aplicar efeitos no texto.",
     postImage:
       "https://cdn.discordapp.com/attachments/823475059808927784/956959389712007248/F0gKLBC1cH67Yg9Agy_LSrisH8wypFvtZgT2jVfyfAQddU06OlsW9ch9ZYY6tqDD99mS9K5yo03dgbIw1319-h698.png",
-    route: `${joaoneves.linkName}-gimp-6.1-6.2`,
+    route: `${joaoneves.linkName}-gimp-7.1`,
   },
   {
     authors: [joaomanaia, tiagocaetano],
