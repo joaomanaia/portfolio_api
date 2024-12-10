@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
 import { Inter as FontSans } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 import { GoogleTagManager } from "@next/third-parties/google"
 import Background from "./components/background"
+import { ThemeProvider } from "next-themes"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -29,7 +29,11 @@ export const metadata: Metadata = {
   robots: "index, follow",
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
     <html lang="pt" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>

@@ -1,18 +1,24 @@
 import { ProjectTimelineItem } from "@/app/(home)/components/projects/project-timeline-item"
 import { findUserByLinkName } from "@/common/common"
 import { getPostsByUser } from "@/data/timeline/PostTimeLineData"
-import PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"
+import type PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"
 import { Metadata } from "next"
+import { cache } from "react"
 
-const getProjectsByUser = async (uid: string): Promise<PostTimeLineDataType[]> => {
+interface UserPageProps {
+  params: Promise<{ uid: string }>
+}
+
+const getProjectsByUser = cache(async (uid: string): Promise<PostTimeLineDataType[]> => {
   const user = findUserByLinkName(uid)
   if (!user) return []
 
   return getPostsByUser(user)
-}
+})
 
-export async function generateMetadata({ params }: { params: { uid: string } }): Promise<Metadata> {
-  const user = findUserByLinkName(params.uid)
+export async function generateMetadata({ params }: UserPageProps): Promise<Metadata> {
+  const { uid } = await params
+  const user = findUserByLinkName(uid)
 
   const userPhoto = user?.photoUrl ? [user?.photoUrl] : []
 
@@ -25,8 +31,9 @@ export async function generateMetadata({ params }: { params: { uid: string } }):
   }
 }
 
-export default async function UserPage({ params }: { params: { uid: string } }) {
-  const projects = await getProjectsByUser(params.uid)
+export default async function UserPage({ params }: UserPageProps) {
+  const { uid } = await params
+  const projects = await getProjectsByUser(uid)
 
   return (
     <section className="px-8 lg:px-32 xl:px-48 2xl:px-96 py-10">

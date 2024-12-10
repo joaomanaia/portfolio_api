@@ -13,12 +13,13 @@ const getProjeto = async (projetoId: string): Promise<PostTimeLineDataType | und
   return findPostByRoute(projetoId)
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { projetoId: string }
-}): Promise<Metadata> {
-  const projeto = await getProjeto(params.projetoId)
+interface ProjetoPageProps {
+  params: Promise<{ projetoId: string }>
+}
+
+export async function generateMetadata({ params }: ProjetoPageProps): Promise<Metadata> {
+  const { projetoId } = await params
+  const projeto = await getProjeto(projetoId)
 
   const images = projeto?.postImage ? [projeto?.postImage] : []
   const authors = projeto?.authors?.map((author) => author.name).join(", ")
@@ -38,8 +39,9 @@ export async function generateMetadata({
   }
 }
 
-export default async function ProjetoPage({ params }: { params: { projetoId: string } }) {
-  const projeto = await getProjeto(params.projetoId)
+export default async function ProjetoPage({ params }: ProjetoPageProps) {
+  const { projetoId } = await params
+  const projeto = await getProjeto(projetoId)
 
   if (!projeto) {
     return redirect("/")
