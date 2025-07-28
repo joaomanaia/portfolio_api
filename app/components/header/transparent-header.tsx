@@ -26,7 +26,7 @@ export const TransparentHeader: React.FC = () => {
     <header
       className={cn(
         "fixed flex items-center bg-transparent justify-between top-0 z-50 w-screen px-4 h-16 transition duration-500 ease-in-out",
-        isHeaderTransparent ? "backdrop-blur-sm" : "backdrop-blur-xl"
+        isHeaderTransparent ? "backdrop-blur-xs" : "backdrop-blur-xl"
       )}
     >
       <Button

@@ -11,7 +11,7 @@ export const ParticipantItem: React.FC<ParticipantItemProps> = ({ user }) => {
     <li className="w-full lg:w-1/3 h-24 lg:h-auto">
       <Link
         href={`/${user.linkName}`}
-        className="group rounded-lg h-24 lg:h-auto border bg-card text-card-foreground shadow-sm flex lg:flex-col p-4 hover:bg-accent/90 transition cursor-pointer"
+        className="group rounded-lg h-24 lg:h-auto border bg-card text-card-foreground shadow-xs flex lg:flex-col p-4 hover:bg-accent/90 transition cursor-pointer"
       >
         <div className="relative h-full lg:h-auto lg:w-full aspect-square">
           <Image
