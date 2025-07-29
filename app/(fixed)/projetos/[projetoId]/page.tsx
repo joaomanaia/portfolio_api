@@ -5,7 +5,7 @@ import { type Metadata } from "next"
 import remarkGfm from "remark-gfm"
 import { ProjectAuthors } from "@/app/(home)/_components/projects/project-authors"
 import { defaultUserPhotoUrl } from "@/common/common"
-import { findPostByRoute } from "@/data/timeline/PostTimeLineData"
+import { findPostByRoute, postItems } from "@/data/timeline/PostTimeLineData"
 import type PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"
 
 const getProjeto = async (projetoId: string): Promise<PostTimeLineDataType | undefined> => {
@@ -43,6 +43,12 @@ const YouTubeEmbed = dynamic(() =>
 )
 const Image = dynamic(() => import("next/image"))
 const MDXRemote = dynamic(() => import("next-mdx-remote-client/rsc").then((mod) => mod.MDXRemote))
+
+export async function generateStaticParams() {
+  return postItems.map((post) => ({
+    projetoId: post.route,
+  }))
+}
 
 export default async function ProjetoPage({ params }: ProjetoPageProps) {
   const { projetoId } = await params

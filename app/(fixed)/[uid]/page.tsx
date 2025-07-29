@@ -2,7 +2,7 @@ import { cache } from "react"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { ProjectTimelineItem } from "@/app/(home)/_components/projects/project-timeline-item"
-import { findUserByLinkName } from "@/common/common"
+import { allUsers, findUserByLinkName } from "@/common/common"
 import { getPostsByUser } from "@/data/timeline/PostTimeLineData"
 import type PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"
 
@@ -30,6 +30,12 @@ export async function generateMetadata({ params }: UserPageProps): Promise<Metad
       images: userPhoto,
     },
   }
+}
+
+export async function generateStaticParams() {
+  return allUsers.map((user) => ({
+    uid: user.linkName,
+  }))
 }
 
 export default async function UserPage({ params }: UserPageProps) {

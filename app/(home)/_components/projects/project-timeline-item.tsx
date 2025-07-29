@@ -22,28 +22,28 @@ export const ProjectTimelineItem: React.FC<ProjectTimelineItemProps> = ({ projec
 
       <div className="mt-1 ml-5 flex w-full grow">
         <div className="bg-primary mb-4 h-auto w-1 rounded-full" />
-        <Card className="bg-accent text-accent-foreground mx-12 mb-8 ml-8 w-full rounded-2xl p-2 pb-6">
+        <Card className="mx-12 mb-8 ml-8 w-full p-2 pb-6">
           <div className="relative aspect-video w-full">
             {project.videoId ? (
               <YouTubeEmbed
                 videoid={project.videoId}
                 params="controls=0"
-                style="position: absolute; min-width: 100%; width: 100%; height: 100%; border-radius: 1rem;"
+                style="position: absolute; min-width: 100%; width: 100%; height: 100%; border-radius: calc(var(--radius) /* 0.25rem = 4px */ + 4px);"
               />
             ) : (
               <Image
                 src={project.postImage}
-                alt={project.postDescription}
+                alt={project.postDescription.slice(0, 50)}
                 className="rounded-2xl"
                 fill
               />
             )}
           </div>
-          <CardHeader>
+          <CardHeader className="px-2 md:px-6">
             <CardTitle>{project.postTitle}</CardTitle>
             <CardDescription>{project.postDescription}</CardDescription>
           </CardHeader>
-          <CardFooter>
+          <CardFooter className="px-2 md:px-6">
             <Button asChild>
               <Link href={`/projetos/${project.route}`}>Ver mais informações</Link>
             </Button>

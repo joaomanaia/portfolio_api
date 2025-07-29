@@ -1,6 +1,6 @@
+import { Link } from "react-scroll"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { Link } from "react-scroll"
 
 interface HeaderLinkProps {
   children?: React.ReactNode
@@ -19,7 +19,9 @@ export function HeaderLink({ children, to, headerTransparent, className }: Heade
       spy
       smooth
       duration={500}
-      activeClass={headerTransparent ? "bg-secondary" : "bg-secondary-foreground/10"}
+      activeClass={
+        headerTransparent ? "bg-secondary text-secondary-foreground" : "bg-secondary-foreground/10"
+      }
     >
       {children}
     </Link>
