@@ -3,16 +3,17 @@
 import Particles, { initParticlesEngine } from "@tsparticles/react"
 import { useEffect, useMemo, useState } from "react"
 import { type ISourceOptions } from "@tsparticles/engine"
+import convert, { LAB } from "color-convert"
 
 export const BackgroundParticles: React.FC = () => {
   const [init, setInit] = useState(false)
-  const [particlesColor, setParticlesColor] = useState("#3b82f6")
-  
+  const [particlesColor, setParticlesColor] = useState("#fff")
 
   useEffect(() => {
     const computedStyles = getComputedStyle(document.documentElement)
-    const color = computedStyles.getPropertyValue("--particles")
-    setParticlesColor(color)
+    const labColor = computedStyles.getPropertyValue("--color-primary")
+    const hexColor = `#${convert.lab.hex(getLabColor(labColor))}`
+    setParticlesColor(hexColor)
 
     initParticlesEngine(async (engine) => {
       // await loadSlim(engine)
@@ -80,10 +81,17 @@ export const BackgroundParticles: React.FC = () => {
   if (!init) return null
 
   return (
-    <Particles
-      className="absolute top-0 z-0 w-screen h-screen bg-background/50"
-      id="particles"
-      options={options}
-    />
+    <Particles className="absolute top-0 z-0 w-screen h-screen" id="particles" options={options} />
   )
+}
+
+function getLabColor(color: string): LAB {
+  // Extract the LAB values from the CSS lab() string
+  const match = color.match(/lab\(([\d.]+)%?\s+([-\d.]+)\s+([-\d.]+)\)/)
+  if (!match) {
+    throw new Error("Invalid LAB color format")
+  }
+
+  const [, l, a, b] = match
+  return [parseFloat(l), parseFloat(a), parseFloat(b)]
 }

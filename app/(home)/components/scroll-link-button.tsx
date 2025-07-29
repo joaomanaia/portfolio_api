@@ -21,8 +21,8 @@ export const ScrollLinkButton: React.FC<ScrollLinkButtonType> = ({
         activeClass="active"
         type="submit"
         to={to}
-        spy={true}
-        smooth={true}
+        spy
+        smooth
         offset={offset}
         duration={500}
         className="cursor-pointer"

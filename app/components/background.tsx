@@ -1,12 +1,12 @@
 "use client"
 
 import React from "react"
-
 import useMouseMove from "@/hooks/use-mouse-move"
 
 export default function Background({ children }: { children: React.ReactNode }) {
   // --x and --y will be updated based on mouse position
   useMouseMove()
+
   return (
     <>
       <div className="fixed left-0 top-0 -z-50">
@@ -23,7 +23,7 @@ export default function Background({ children }: { children: React.ReactNode }) 
                 <rect width="100%" height="100%" fill="url(#dotted-pattern)" />
               </mask>
             </defs>
-            <rect width="100%" height="100%" fill="hsl(var(--background))" mask="url(#dots-mask)" />
+            <rect width="100%" height="100%" fill="var(--background)" mask="url(#dots-mask)" />
           </svg>
         </div>
       </div>

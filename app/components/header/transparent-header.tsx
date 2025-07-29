@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { ModeToggle } from "../mode-toggle"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { HeaderLink } from "./header-link"
+import { scrollSpy } from "react-scroll"
+import HamburgerMenu, { RowNavigation } from "@/components/navigation"
 
 export const TransparentHeader: React.FC = () => {
   const [isHeaderTransparent, setIsHeaderTransparent] = useState(true)
@@ -16,6 +18,7 @@ export const TransparentHeader: React.FC = () => {
     }
 
     window.addEventListener("scroll", onScroll)
+    scrollSpy.update()
 
     return () => {
       window.removeEventListener("scroll", onScroll)
@@ -40,21 +43,12 @@ export const TransparentHeader: React.FC = () => {
         <Link href="/">Portfolio API</Link>
       </Button>
 
-      <nav>
-        <ul className="flex space-x-4">
-          <HeaderLink to="home" headerTransparent={isHeaderTransparent}>
-            Inicio
-          </HeaderLink>
-          <HeaderLink to="participants" headerTransparent={isHeaderTransparent}>
-            Participantes
-          </HeaderLink>
-          <HeaderLink to="projects" headerTransparent={isHeaderTransparent}>
-            Projetos
-          </HeaderLink>
-        </ul>
-      </nav>
+      <RowNavigation isHeaderTransparent={isHeaderTransparent} />
 
-      <ModeToggle />
+      <div className="flex items-center gap-2">
+        <ModeToggle />
+        <HamburgerMenu />
+      </div>
     </header>
   )
 }
