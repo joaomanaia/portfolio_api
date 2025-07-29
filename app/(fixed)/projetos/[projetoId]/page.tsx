@@ -1,8 +1,7 @@
-import Image from "next/image"
+import { Suspense } from "react"
+import dynamic from "next/dynamic"
 import { notFound } from "next/navigation"
-import { YouTubeEmbed } from "@next/third-parties/google"
 import { type Metadata } from "next"
-import { MDXRemote } from "next-mdx-remote/rsc"
 import remarkGfm from "remark-gfm"
 import { ProjectAuthors } from "@/app/(home)/_components/projects/project-authors"
 import { defaultUserPhotoUrl } from "@/common/common"
@@ -39,6 +38,12 @@ export async function generateMetadata({ params }: ProjetoPageProps): Promise<Me
   }
 }
 
+const YouTubeEmbed = dynamic(() =>
+  import("@next/third-parties/google").then((mod) => mod.YouTubeEmbed)
+)
+const Image = dynamic(() => import("next/image"))
+const MDXRemote = dynamic(() => import("next-mdx-remote-client/rsc").then((mod) => mod.MDXRemote))
+
 export default async function ProjetoPage({ params }: ProjetoPageProps) {
   const { projetoId } = await params
   const projeto = await getProjeto(projetoId)
@@ -65,21 +70,23 @@ export default async function ProjetoPage({ params }: ProjetoPageProps) {
             className="rounded-2xl"
             src={projeto?.postImage || defaultUserPhotoUrl}
             alt="Post Image"
-            layout="fill"
+            fill
           />
         )}
       </div>
 
       {projeto.content ? (
         <section className="prose lg:prose-xl dark:prose-invert mt-4 w-full">
-          <MDXRemote
-            source={projeto.content}
-            options={{
-              mdxOptions: {
-                remarkPlugins: [remarkGfm],
-              },
-            }}
-          />
+          <Suspense fallback={<p>Loading content...</p>}>
+            <MDXRemote
+              source={projeto.content}
+              options={{
+                mdxOptions: {
+                  remarkPlugins: [remarkGfm],
+                },
+              }}
+            />
+          </Suspense>
         </section>
       ) : (
         <p className="fonte-texto mt-4">{projeto.postDescription}</p>

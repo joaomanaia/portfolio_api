@@ -1,7 +1,6 @@
 import React from "react"
-import Image from "next/image"
+import dynamic from "next/dynamic"
 import Link from "next/link"
-import { YouTubeEmbed } from "@next/third-parties/google"
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"
@@ -10,6 +9,11 @@ import { ProjectAuthors } from "./project-authors"
 interface ProjectTimelineItemProps {
   project: PostTimeLineDataType
 }
+
+const YouTubeEmbed = dynamic(() =>
+  import("@next/third-parties/google").then((mod) => mod.YouTubeEmbed)
+)
+const Image = dynamic(() => import("next/image"))
 
 export const ProjectTimelineItem: React.FC<ProjectTimelineItemProps> = ({ project }) => {
   return (
@@ -31,7 +35,7 @@ export const ProjectTimelineItem: React.FC<ProjectTimelineItemProps> = ({ projec
                 src={project.postImage}
                 alt={project.postDescription}
                 className="rounded-2xl"
-                layout="fill"
+                fill
               />
             )}
           </div>

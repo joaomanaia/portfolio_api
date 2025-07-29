@@ -1,11 +1,11 @@
+import { Author } from "next/dist/lib/metadata/types/metadata-types"
+import Image from "next/image"
+import { redirect } from "next/navigation"
+import { Metadata } from "next"
 import { ProjectAuthors } from "@/app/(home)/_components/projects/project-authors"
 import { defaultUserPhotoUrl } from "@/common/common"
 import { findPostByRoute } from "@/data/timeline/PostTimeLineData"
 import PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"
-import { Metadata } from "next"
-import { Author } from "next/dist/lib/metadata/types/metadata-types"
-import Image from "next/image"
-import { redirect } from "next/navigation"
 
 const getProjeto = async (): Promise<PostTimeLineDataType | undefined> => {
   return findPostByRoute("sistema-de-cores")
@@ -53,20 +53,20 @@ export default async function PostPage() {
     <article
       itemScope
       itemType="https://schema.org/Article"
-      className="flex flex-col py-8 px-12 md:px-44 xl:px-96 h-auto w-auto space-y-4"
+      className="flex h-auto w-auto flex-col space-y-4 px-12 py-8 md:px-44 xl:px-96"
     >
       <ProjectAuthors authors={projeto.authors} postDate={projeto.postDate} horizontal />
 
-      <h1 itemProp="headline" className="text-3xl font-semibold mt-12">
+      <h1 itemProp="headline" className="mt-12 text-3xl font-semibold">
         {projeto?.postTitle}
       </h1>
 
-      <div className="relative w-auto aspect-video mt-12">
+      <div className="relative mt-12 aspect-video w-auto">
         <Image
           className="rounded-2xl"
           src={projeto?.postImage || defaultUserPhotoUrl}
           alt="Post Image"
-          layout="fill"
+          fill
         />
       </div>
 
@@ -167,7 +167,7 @@ interface FigureProps {
 
 const Figure: React.FC<FigureProps> = ({ src, alt, caption, imageClassName }) => {
   return (
-    <figure className="border rounded-2xl p-4 space-y-4 w-fit">
+    <figure className="w-fit space-y-4 rounded-2xl border p-4">
       <Image className={imageClassName} src={src} alt={alt} width={300} height={300} />
       <figcaption>{caption}</figcaption>
     </figure>

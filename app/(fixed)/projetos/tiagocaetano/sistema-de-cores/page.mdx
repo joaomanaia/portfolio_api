@@ -1,6 +1,6 @@
+import Image from "next/image"
 import { ProjectAuthors } from "@/app/(home)/_components/projects/project-authors"
 import { allUsers } from "@/common/common"
-import Image from "next/image"
 import { Figure } from "@/components/figure"
 
 <ProjectAuthors authors={allUsers} postDate={new Date(2022, 1, 21)} horizontal />
@@ -11,12 +11,12 @@ import { Figure } from "@/components/figure"
 
 </section>
 
-<div className="relative w-auto aspect-video mt-4">
+<div className="relative mt-4 aspect-video w-auto">
   <Image
     className="rounded-2xl"
     src="https://firebasestorage.googleapis.com/v0/b/infinitepower-ipc.appspot.com/o/portfolio_api%2Fcolor_system.jpg?alt=media&token=af1f2277-cf27-4713-a339-77cf8caa5532"
     alt="Post Image"
-    layout="fill"
+    fill
   />
 </div>
 

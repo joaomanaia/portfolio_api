@@ -68,12 +68,7 @@ const AuthorsImages: React.FC<AuthorsImagesProps> = ({ authors, horizontal }) =>
   if (authors.length == 1) {
     return (
       <Link href={authors[0].linkName} className="relative h-11 w-11">
-        <Image
-          className="rounded-full"
-          src={authors[0].photoUrl}
-          alt={authors[0].name}
-          layout="fill"
-        />
+        <Image className="rounded-full" src={authors[0].photoUrl} alt={authors[0].name} fill />
       </Link>
     )
   }
@@ -87,11 +82,10 @@ const AuthorsImages: React.FC<AuthorsImagesProps> = ({ authors, horizontal }) =>
         >
           <Link href={`/${author.linkName}`}>
             <Image
-              className="rounded-full"
+              className="rounded-full object-cover"
               src={author.photoUrl}
               alt={author.name}
-              layout="fill"
-              objectFit="cover"
+              fill
             />
           </Link>
         </div>
