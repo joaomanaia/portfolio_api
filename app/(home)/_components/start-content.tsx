@@ -10,20 +10,22 @@ export const StartContent: React.FC = () => {
     <Element name="home" className="relative">
       <BackgroundParticles />
 
-      <section className="flex z-10 flex-col w-full h-screen bg-background/50">
-        <div className="z-10 flex flex-col mt-36 items-center text-center justify-center mx-12 space-y-8 xl:mx-24 grow">
-          <h1 className="flex flex-col text-foreground text-2xl md:text-3xl lg:text-5xl xl:text-7xl">
+      <section className="bg-background/50 z-10 flex h-screen w-full flex-col">
+        <div className="z-10 mx-12 mt-36 flex grow flex-col items-center justify-center space-y-8 text-center xl:mx-24">
+          <h1 className="text-foreground flex flex-col text-3xl md:text-4xl lg:text-5xl xl:text-7xl">
             Somos um grupo de trabalho de
             <br />
-            <span className="text-primary lg:mt-4">Aplicações informaticas</span>
+            <span className="text-primary font-semibold lg:mt-4">Aplicações Informaticas</span>
           </h1>
-          <ScrollLinkButton to="participants">Ver Participantes</ScrollLinkButton>
+          <ScrollLinkButton to="participants" size="lg">
+            Ver Participantes
+          </ScrollLinkButton>
         </div>
         <Link
           to="participants"
           smooth={true}
           duration={500}
-          className=" self-center mt-32 mb-8 h-12 w-12 animate-bounce text-foreground hover:text-foreground/80 transition cursor-pointer"
+          className="text-foreground hover:text-foreground/80 mt-32 mb-8 h-12 w-12 animate-bounce cursor-pointer self-center transition"
         >
           <ArrowUpCircle className="h-12 w-12 rotate-180" />
         </Link>

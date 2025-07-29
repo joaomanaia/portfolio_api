@@ -1,13 +1,13 @@
+import Image from "next/image"
+import { notFound } from "next/navigation"
+import { YouTubeEmbed } from "@next/third-parties/google"
+import { type Metadata } from "next"
+import { MDXRemote } from "next-mdx-remote/rsc"
+import remarkGfm from "remark-gfm"
 import { ProjectAuthors } from "@/app/(home)/_components/projects/project-authors"
 import { defaultUserPhotoUrl } from "@/common/common"
 import { findPostByRoute } from "@/data/timeline/PostTimeLineData"
 import type PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"
-import { type Metadata } from "next"
-import Image from "next/image"
-import { redirect } from "next/navigation"
-import { YouTubeEmbed } from "@next/third-parties/google"
-import { MDXRemote } from "next-mdx-remote/rsc"
-import remarkGfm from "remark-gfm"
 
 const getProjeto = async (projetoId: string): Promise<PostTimeLineDataType | undefined> => {
   return findPostByRoute(projetoId)
@@ -44,16 +44,16 @@ export default async function ProjetoPage({ params }: ProjetoPageProps) {
   const projeto = await getProjeto(projetoId)
 
   if (!projeto) {
-    return redirect("/")
+    return notFound()
   }
 
   return (
     <>
       <ProjectAuthors authors={projeto.authors} postDate={projeto.postDate} horizontal />
 
-      <h1 className="text-3xl font-semibold mt-4">{projeto?.postTitle}</h1>
+      <h1 className="mt-4 text-3xl font-semibold">{projeto?.postTitle}</h1>
 
-      <div className="relative w-full aspect-video mt-8">
+      <div className="relative mt-8 aspect-video w-full">
         {projeto?.videoId ? (
           <YouTubeEmbed
             videoid={projeto.videoId}
@@ -71,7 +71,7 @@ export default async function ProjetoPage({ params }: ProjetoPageProps) {
       </div>
 
       {projeto.content ? (
-        <section className="w-full mt-4 prose lg:prose-xl dark:prose-invert">
+        <section className="prose lg:prose-xl dark:prose-invert mt-4 w-full">
           <MDXRemote
             source={projeto.content}
             options={{

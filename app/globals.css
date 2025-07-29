@@ -125,8 +125,10 @@
   body {
     @apply bg-background text-foreground;
   }
+}
 
-  .active-btn {
-    @apply bg-secondary-foreground/10;
+@layer components {
+  .link {
+    @apply transition hover:underline;
   }
 }

@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 import { Link } from "react-scroll"
+import { Button, type ButtonProps } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
-type ScrollLinkButtonType = {
+interface ScrollLinkButtonType extends ButtonProps {
   to: string
   offset?: number | undefined
   className?: string
@@ -14,9 +14,10 @@ export const ScrollLinkButton: React.FC<ScrollLinkButtonType> = ({
   offset,
   className,
   children,
+  ...props
 }) => {
   return (
-    <Button asChild className={cn("w-40", className)}>
+    <Button asChild className={cn("w-40", className)} {...props}>
       <Link
         activeClass="active"
         type="submit"

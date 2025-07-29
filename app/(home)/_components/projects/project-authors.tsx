@@ -1,11 +1,11 @@
-import { UserType } from "@/common/common"
-import { cn } from "@/lib/utils"
+import React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import React from "react"
 import { formatDistance } from "date-fns"
 import { pt } from "date-fns/locale/pt"
+import { UserType } from "@/common/common"
 import getNow from "@/lib/getNow"
+import { cn } from "@/lib/utils"
 
 interface ProjectAuthorsProps {
   authors: UserType[]
@@ -33,7 +33,7 @@ export const ProjectAuthors: React.FC<ProjectAuthorsProps> = ({
           itemProp="datePublished"
           className="text-foreground/50 mb-4"
         >
-          {published}
+          Publicado {published}
         </time>
       </div>
     </div>
@@ -49,7 +49,9 @@ const AuthorsNames: React.FC<AuthorsNamesProps> = ({ authors }) => {
     <p className="text-foreground text-lg">
       {authors.map((author, index) => (
         <React.Fragment key={author.linkName}>
-          <Link href={`/${author.linkName}`}>{author.name}</Link>
+          <Link className="link" href={`/${author.linkName}`}>
+            {author.name}
+          </Link>
           {index < authors.length - 1 && ", "}
         </React.Fragment>
       ))}
@@ -65,7 +67,7 @@ interface AuthorsImagesProps {
 const AuthorsImages: React.FC<AuthorsImagesProps> = ({ authors, horizontal }) => {
   if (authors.length == 1) {
     return (
-      <Link href={authors[0].linkName} className="relative w-11 h-11">
+      <Link href={authors[0].linkName} className="relative h-11 w-11">
         <Image
           className="rounded-full"
           src={authors[0].photoUrl}
@@ -77,11 +79,11 @@ const AuthorsImages: React.FC<AuthorsImagesProps> = ({ authors, horizontal }) =>
   }
 
   return (
-    <div className={cn(horizontal ? "flex -space-x-4" : "w-11 h-11 -space-y-4")}>
+    <div className={cn(horizontal ? "flex -space-x-4" : "h-11 w-11 -space-y-4")}>
       {authors.map((author) => (
         <div
           key={author.linkName}
-          className="relative w-11 h-11 border-2 border-primary rounded-full"
+          className="border-primary relative h-11 w-11 rounded-full border-2 transition-transform hover:z-10 hover:scale-105 hover:brightness-110"
         >
           <Link href={`/${author.linkName}`}>
             <Image

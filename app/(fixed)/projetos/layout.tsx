@@ -3,7 +3,7 @@ export default function ProjetosLayout({ children }: { children: React.ReactNode
     <article
       itemScope
       itemType="https://schema.org/Article"
-      className="flex flex-col container border p-4 bg-background my-2 rounded-2xl"
+      className="bg-background my-2 flex flex-col rounded-2xl border p-4"
     >
       {children}
     </article>
