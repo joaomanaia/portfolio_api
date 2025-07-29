@@ -1,4 +1,4 @@
-import { ProjectAuthors } from "@/app/(home)/components/projects/project-authors"
+import { ProjectAuthors } from "@/app/(home)/_components/projects/project-authors"
 import { defaultUserPhotoUrl } from "@/common/common"
 import { findPostByRoute } from "@/data/timeline/PostTimeLineData"
 import PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"

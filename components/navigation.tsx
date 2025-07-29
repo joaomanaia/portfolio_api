@@ -4,7 +4,7 @@ import * as React from "react"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { HeaderLink } from "@/app/components/header/header-link"
+import { HeaderLink } from "@/components/header/header-link"
 import { scrollSpy } from "react-scroll"
 
 type NavItem = {

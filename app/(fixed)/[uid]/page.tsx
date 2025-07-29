@@ -1,4 +1,4 @@
-import { ProjectTimelineItem } from "@/app/(home)/components/projects/project-timeline-item"
+import { ProjectTimelineItem } from "@/app/(home)/_components/projects/project-timeline-item"
 import { findUserByLinkName } from "@/common/common"
 import { getPostsByUser } from "@/data/timeline/PostTimeLineData"
 import type PostTimeLineDataType from "@/data/timeline/PostTimeLineDataType"
