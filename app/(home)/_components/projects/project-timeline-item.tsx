@@ -21,7 +21,7 @@ export const ProjectTimelineItem: React.FC<ProjectTimelineItemProps> = ({ projec
       <ProjectAuthors authors={project.authors} postDate={project.postDate} />
 
       <div className="mt-1 ml-5 flex w-full grow">
-        <div className="bg-primary mb-4 h-auto w-1 rounded-full" />
+        <div className="border-primary mb-4 h-auto w-1 rounded-full border-l-2 border-dashed bg-transparent" />
         <Card className="mx-12 mb-8 ml-8 w-full p-2 pb-6">
           <div className="relative aspect-video w-full">
             {project.videoId ? (
