@@ -12,11 +12,9 @@ const getProjeto = async (projetoId: string): Promise<PostTimeLineDataType | und
   return findPostByRoute(projetoId)
 }
 
-interface ProjetoPageProps {
-  params: Promise<{ projetoId: string }>
-}
-
-export async function generateMetadata({ params }: ProjetoPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps<"/projetos/[projetoId]">): Promise<Metadata> {
   const { projetoId } = await params
   const projeto = await getProjeto(projetoId)
 
@@ -50,7 +48,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function ProjetoPage({ params }: ProjetoPageProps) {
+export default async function ProjetoPage({ params }: PageProps<"/projetos/[projetoId]">) {
   const { projetoId } = await params
   const projeto = await getProjeto(projetoId)
 

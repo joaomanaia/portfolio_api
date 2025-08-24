@@ -23,10 +23,10 @@ export const ProjectAuthors: React.FC<ProjectAuthorsProps> = ({
   const published = formatDistance(date, now, { addSuffix: true, locale: pt })
 
   return (
-    <div className="flex items-center">
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
       <AuthorsImages authors={authors} horizontal={horizontal} />
 
-      <div className="ml-4">
+      <div>
         <AuthorsNames authors={authors} />
         <time
           dateTime={date.toISOString()}

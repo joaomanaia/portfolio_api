@@ -1,10 +1,9 @@
-import remarkGfm from "remark-gfm"
 import createMDX from "@next/mdx"
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   experimental: {
     mdxRs: true,
   },
@@ -44,7 +43,7 @@ const nextConfig = {
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
   options: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: ["remark-gfm"],
     rehypePlugins: [],
   },
 })

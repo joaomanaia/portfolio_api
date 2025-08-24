@@ -1,4 +1,4 @@
-export default function ProjetosLayout({ children }: { children: React.ReactNode }) {
+export default function ProjetosLayout({ children }: LayoutProps<"/projetos">) {
   return (
     <article
       itemScope

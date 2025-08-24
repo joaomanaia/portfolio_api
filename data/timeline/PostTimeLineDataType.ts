@@ -1,4 +1,4 @@
-import type { UserType } from "../../common/common"
+import type { UserType } from "@/common/common"
 
 type PostTimeLineDataType = {
   authors: UserType[]
