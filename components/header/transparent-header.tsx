@@ -1,18 +1,26 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
+import { useEffect, useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { scrollSpy } from "react-scroll"
+import { Button } from "@/components/ui/button"
+import HamburgerMenu, { RowNavigation } from "@/components/navigation"
 import { cn } from "@/lib/utils"
 import { ModeToggle } from "../mode-toggle"
-import { useEffect, useRef, useState } from "react"
 import { HeaderLink } from "./header-link"
-import { scrollSpy } from "react-scroll"
-import HamburgerMenu, { RowNavigation } from "@/components/navigation"
 
 export const TransparentHeader: React.FC = () => {
   const [isHeaderTransparent, setIsHeaderTransparent] = useState(true)
+  const pathname = usePathname()
+  const isHomePage = pathname === "/"
 
   useEffect(() => {
+    if (!isHomePage) {
+      setIsHeaderTransparent(false)
+      return
+    }
+
     const onScroll = () => {
       setIsHeaderTransparent(window.scrollY < window.innerHeight / 2)
     }
@@ -23,31 +31,38 @@ export const TransparentHeader: React.FC = () => {
     return () => {
       window.removeEventListener("scroll", onScroll)
     }
-  }, [])
+  }, [isHomePage])
 
   return (
     <header
       className={cn(
-        "fixed flex items-center bg-transparent justify-between top-0 z-50 w-screen px-4 h-16 transition duration-500 ease-in-out",
-        isHeaderTransparent ? "backdrop-blur-xs" : "backdrop-blur-xl"
+        "sticky top-0 z-50 flex h-16 w-screen items-center justify-between bg-transparent px-4 transition duration-500 ease-in-out",
+        isHeaderTransparent ? "backdrop-blur-xs" : "backdrop-blur-xl",
+        isHomePage && "fixed"
       )}
     >
-      <Button
-        asChild
-        variant="link"
-        className={cn(
-          "text-xl font-bold transition duration-300 ease-in-out",
-          isHeaderTransparent ? "text-inherit" : "text-secondary-foreground"
-        )}
-      >
-        <Link href="/">Portfolio API</Link>
-      </Button>
+      {isHomePage ? (
+        <HeaderLink to="home" headerTransparent={isHeaderTransparent} className="text-xl font-bold">
+          Portfolio API
+        </HeaderLink>
+      ) : (
+        <Button
+          asChild
+          variant="link"
+          className={cn(
+            "text-xl font-bold transition duration-300 ease-in-out",
+            isHeaderTransparent ? "text-inherit" : "text-secondary-foreground"
+          )}
+        >
+          <Link href="/">Portfolio API</Link>
+        </Button>
+      )}
 
-      <RowNavigation isHeaderTransparent={isHeaderTransparent} />
+      {isHomePage && <RowNavigation isHeaderTransparent={isHeaderTransparent} />}
 
       <div className="flex items-center gap-2">
         <ModeToggle />
-        <HamburgerMenu />
+        {isHomePage && <HamburgerMenu />}
       </div>
     </header>
   )

@@ -2,15 +2,10 @@
 
 import * as React from "react"
 import { Menu } from "lucide-react"
+import { scrollSpy } from "react-scroll"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { HeaderLink } from "@/components/header/header-link"
-import { scrollSpy } from "react-scroll"
-
-type NavItem = {
-  to: string
-  label: string
-}
 
 const navItems = [
   { to: "home", label: "Inicio" },
@@ -24,7 +19,7 @@ export function RowNavigation({ isHeaderTransparent }: { isHeaderTransparent: bo
       <ul className="flex gap-4">
         {navItems.map((item) => (
           <li key={item.to}>
-            <HeaderLink to={item.to} headerTransparent={isHeaderTransparent}>
+            <HeaderLink applyActiveStyles to={item.to} headerTransparent={isHeaderTransparent}>
               {item.label}
             </HeaderLink>
           </li>
@@ -59,7 +54,12 @@ export default function HamburgerMenu() {
           <ul>
             {navItems.map((item) => (
               <li key={item.to}>
-                <HeaderLink to={item.to} headerTransparent={true} className=" w-full text-start">
+                <HeaderLink
+                  applyActiveStyles
+                  to={item.to}
+                  headerTransparent={true}
+                  className="w-full text-start"
+                >
                   {item.label}
                 </HeaderLink>
               </li>

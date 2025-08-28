@@ -33,18 +33,18 @@ export const ProjectTimelineItem: React.FC<ProjectTimelineItemProps> = ({ projec
             ) : (
               <Image
                 src={project.postImage}
-                alt={project.postDescription.slice(0, 50)}
-                className="rounded-2xl"
+                alt={project.postTitle}
+                className="bg-accent rounded-2xl"
                 fill
               />
             )}
           </div>
           <CardHeader className="px-2 md:px-6">
             <CardTitle>{project.postTitle}</CardTitle>
-            <CardDescription>{project.postDescription}</CardDescription>
+            <CardDescription className="line-clamp-3">{project.postDescription}</CardDescription>
           </CardHeader>
           <CardFooter className="px-2 md:px-6">
-            <Button asChild>
+            <Button className="w-full md:w-fit" asChild>
               <Link href={`/projetos/${project.route}`}>Ver mais informações</Link>
             </Button>
           </CardFooter>

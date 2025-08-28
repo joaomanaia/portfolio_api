@@ -7,9 +7,16 @@ interface HeaderLinkProps {
   to: string
   headerTransparent?: boolean
   className?: string
+  applyActiveStyles?: boolean
 }
 
-export function HeaderLink({ children, to, headerTransparent, className }: HeaderLinkProps) {
+export function HeaderLink({
+  children,
+  to,
+  headerTransparent,
+  className,
+  applyActiveStyles,
+}: HeaderLinkProps) {
   return (
     <Link
       className={cn(buttonVariants({ variant: "ghost" }), className)}
@@ -17,10 +24,17 @@ export function HeaderLink({ children, to, headerTransparent, className }: Heade
       to={to}
       id={to}
       spy
+      hashSpy
       smooth
       duration={500}
       activeClass={
-        headerTransparent ? "bg-secondary text-secondary-foreground" : "bg-secondary-foreground/10"
+        applyActiveStyles
+          ? cn(
+              headerTransparent
+                ? "bg-secondary text-secondary-foreground"
+                : "bg-secondary-foreground/10"
+            )
+          : undefined
       }
     >
       {children}

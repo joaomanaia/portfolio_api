@@ -4,6 +4,7 @@ import "./globals.css"
 import { GoogleTagManager } from "@next/third-parties/google"
 import { ThemeProvider } from "next-themes"
 import Background from "@/components/background"
+import { TransparentHeader } from "@/components/header/transparent-header"
 import { cn } from "@/lib/utils"
 
 const fontSans = FontSans({
@@ -32,14 +33,22 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="pt" suppressHydrationWarning>
-      <body className={cn("bg-background min-h-screen font-sans antialiased", fontSans.variable)}>
+      <body
+        className={cn(
+          "bg-background min-h-screen overflow-x-hidden font-sans antialiased",
+          fontSans.variable
+        )}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <Background>{children}</Background>
+          <Background>
+            <TransparentHeader />
+            {children}
+          </Background>
         </ThemeProvider>
         <GoogleTagManager gtmId="G-DK3BCFQJH0" />
       </body>

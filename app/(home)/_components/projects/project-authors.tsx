@@ -31,7 +31,7 @@ export const ProjectAuthors: React.FC<ProjectAuthorsProps> = ({
         <time
           dateTime={date.toISOString()}
           itemProp="datePublished"
-          className="text-foreground/50 mb-4"
+          className="text-foreground/50 mb-4 text-sm lg:text-base"
         >
           Publicado {published}
         </time>
@@ -46,7 +46,7 @@ interface AuthorsNamesProps {
 
 const AuthorsNames: React.FC<AuthorsNamesProps> = ({ authors }) => {
   return (
-    <p className="text-foreground text-lg">
+    <p className="text-foreground font-semibold lg:text-lg">
       {authors.map((author, index) => (
         <React.Fragment key={author.linkName}>
           <Link className="link" href={`/${author.linkName}`}>
@@ -65,14 +65,6 @@ interface AuthorsImagesProps {
 }
 
 const AuthorsImages: React.FC<AuthorsImagesProps> = ({ authors, horizontal }) => {
-  if (authors.length == 1) {
-    return (
-      <Link href={authors[0].linkName} className="relative h-11 w-11">
-        <Image className="rounded-full" src={authors[0].photoUrl} alt={authors[0].name} fill />
-      </Link>
-    )
-  }
-
   return (
     <div className={cn(horizontal ? "flex -space-x-4" : "h-11 w-11 -space-y-4")}>
       {authors.map((author) => (
